@@ -248,6 +248,8 @@ function! s:Interpreter()
         let interpreter = "perl -de0"
     elseif &filetype ==# "ps1"
         let interpreter = "pwsh"
+    elseif &filetype ==# "javascript"
+        let interpreter = "node"
     else
         let interpreter = "bash --norc"
     endif

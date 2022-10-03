@@ -77,12 +77,22 @@ Plug 'kyazdani42/nvim-tree.lua'                             " icons for navigati
 Plug 'lewis6991/gitsigns.nvim'                              " git signs on editor
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " treesitter
 Plug 'vim-scripts/dbext.vim'                                " SQL integration
-
+Plug 'jiangmiao/auto-pairs'                                 " auto pairs for brackets
+Plug 'norcalli/nvim-colorizer.lua'                          " highlight hex codes
+Plug 'itchyny/calendar.vim'                                 " Calendar
 call plug#end()
 "}}}
 
 " Put all the plugin settings here
 "{{{
+" colorizer settings
+lua <<EOF
+require 'colorizer'.setup {
+  'css';
+  'javascript';
+  'html';
+}
+EOF
 " Startify
 let g:startify_custom_header =
       \ 'startify#center(startify#fortune#cowsay())'
@@ -116,8 +126,10 @@ let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
 augroup supertab
     autocmd!
     autocmd FileType tex let b:SuperTabContextTextMemberPatterns = ['\\', '{']
+    autocmd FileType c let b:SuperTabContextTextMemberPatterns = ['#']
     autocmd FileType html,css,javascript let b:SuperTabContextTextMemberPatterns = ['</', '<']
     autocmd FileType python let b:SuperTabContextTextMemberPatterns = ['\.', '@']
+    autocmd FileType javascript let b:SuperTabContextTextMemberPatterns = ['\.', '__']
     autocmd FileType sh,bash let b:SuperTabContextTextMemberPatterns = ['\$', '(']
     autocmd FileType r,rmd let b:SuperTabContextTextMemberPatterns = ['\.', '\$', ':', '@']
     autocmd FileType vimwiki let b:SuperTabContextTextMemberPatterns = ['\[', '#', ':']
@@ -130,27 +142,32 @@ let g:vimwiki_list = [{'path': '~/Desktop/Wikis/Personal',
       \ 'path_html': '~/Desktop/Wikis/Personal/html/',
       \ 'template_path': '~/Desktop/Wikis/templates/',
       \ 'template_ext': '.html',
-      \ 'template_default': 'default'},
+      \ 'template_default': 'default',
+      \ 'nested_syntaxes': {'python': 'python', 'r': 'r'}},
       \ {'path': '~/Desktop/Wikis/Machine\ Learning',
       \ 'path_html': '~/Desktop/Wikis/Machine\ Learning/html/',
       \ 'template_path': '~/Desktop/Wikis/templates/',
       \ 'template_ext': '.html',
-      \ 'template_default': 'default'},
+      \ 'template_default': 'default',
+      \ 'nested_syntaxes': {'python': 'python', 'r': 'r'}},
       \ {'path': '~/Desktop/Wikis/Coding',
       \ 'path_html': '~/Desktop/Wikis/Coding/html/',
       \ 'template_path': '~/Desktop/Wikis/templates/',
       \ 'template_ext': '.html',
-      \ 'template_default': 'default'},
+      \ 'template_default': 'default',
+      \ 'nested_syntaxes': {'python': 'python', 'r': 'r'}},
       \ {'path': '~/Desktop/Wikis/Statistics',
       \ 'path_html': '~/Desktop/Wikis/Statistics/html/',
       \ 'template_path': '~/Desktop/Wikis/templates/',
       \ 'template_ext': '.html',
-      \ 'template_default': 'default'},
+      \ 'template_default': 'default',
+      \ 'nested_syntaxes': {'python': 'python', 'r': 'r'}},
       \ {'path': '~/Desktop/Wikis/Marketing',
       \ 'path_html': '~/Desktop/Wikis/Marketing/html/',
       \ 'template_path': '~/Desktop/Wikis/templates/',
       \ 'template_ext': '.html',
-      \ 'template_default': 'default'}]
+      \ 'template_default': 'default',
+      \ 'nested_syntaxes': {'python': 'python', 'r': 'r'}}]
 let g:vimwiki_key_mappings = {
       \ 'table_mappings': 0
       \}
@@ -181,8 +198,13 @@ lua << EOF
   }
 EOF
 
+" Calendar Settings
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+source ~/.cache/calendar.vim/credentials.vim
+
 " indent line filetypes
-let g:indent_blankline_filetype_exclude = ['vimwiki', 'text', 'markdown', 'dashboard', 'startify', 'csv', 'nerdtree', 'netrw', 'help', 'rdoc', 'NvimTree']
+let g:indent_blankline_filetype_exclude = ['vimwiki', 'text', 'markdown', 'dashboard', 'startify', 'csv', 'nerdtree', 'netrw', 'help', 'rdoc', 'NvimTree', 'calendar']
 let g:indent_blankline_buftype_exclude = ['terminal']
 let g:indent_blankline_max_indent_increase = 1
 let g:indent_blankline_show_current_context = v:true
@@ -232,7 +254,7 @@ EOF
 "{{{
 " launch colorscheme
 " let g:adwaita_disable_cursorline = v:true
-" let g:adwaita_darker = v:true
+let g:adwaita_darker = v:true
 colorscheme adwaita
 " set error message
 hi Error guifg=red
@@ -282,6 +304,13 @@ tnoremap <silent> <A-h> <C-\><C-n><C-w>h
 tnoremap <silent> <A-j> <C-\><C-n><C-w>j
 tnoremap <silent> <A-k> <C-\><C-n><C-w>k
 tnoremap <silent> <A-l> <C-\><C-n><C-w>l
+" Scroll
+nnoremap <silent> <C-j> <C-e>
+nnoremap <silent> <C-k> <C-y>
+inoremap <silent> <C-j> <C-o><C-e>
+inoremap <silent> <C-k> <C-o><C-y>
+" Digraph
+inoremap <silent> <C-e> <C-k>
 " Remap window resizing
 nnoremap <silent> <Up>      :resize +2<CR>
 nnoremap <silent> <Down>    :resize -2<CR>
@@ -305,6 +334,7 @@ nnoremap <silent> <leader>ql :clast<CR>
 nnoremap <silent> <leader>x :make %<CR>
 " Project drawer
 nnoremap <silent> <F2> :NvimTreeToggle<CR>
+nnoremap <silent> <M-w> :NvimTreeFocus<CR>
 " change directory to local file
 nnoremap <silent> <leader>cd :echom "Changing directory to ".expand("%:h")<CR>:cd %:h<CR>
 " exit from completion without modifying the word with ESC
