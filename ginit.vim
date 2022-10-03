@@ -7,6 +7,8 @@
 if exists('g:GtkGuiLoaded')
     call rpcnotify(1, 'Gui', 'Font', 'FiraCode Nerd Font 12')
     call rpcnotify(1, 'Gui', 'Option', 'Popupmenu', 0)
+else
+    GuiFont FiraCode Nerd Font:h12
 endif                                                 
 
 " Enable Mouse
