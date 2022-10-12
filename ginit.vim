@@ -42,3 +42,6 @@ nnoremap <silent> <Home> :Startify<CR>
 nnoremap <silent> <C-S-t> :tabnew<CR>
 execute "tnoremap <silent> <M--> \<C-\>\<C-n>a <- "
 execute "tnoremap <silent> <M->> \<C-\>\<C-n>a %>% "
+" Toggle comments
+nnoremap <silent> <C-/> :Commentary<CR>
+vnoremap <silent> <C-/> :Commentary<CR>
