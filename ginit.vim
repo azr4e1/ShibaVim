@@ -45,3 +45,4 @@ execute "tnoremap <silent> <M->> \<C-\>\<C-n>a %>% "
 " Toggle comments
 nnoremap <silent> <C-/> :Commentary<CR>
 vnoremap <silent> <C-/> :Commentary<CR>
+inoremap <silent> <C-/> <C-o>:Commentary<CR>
