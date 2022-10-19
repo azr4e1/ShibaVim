@@ -79,7 +79,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " treesitter
 Plug 'vim-scripts/dbext.vim'                                " SQL integration
 Plug 'jiangmiao/auto-pairs'                                 " auto pairs for brackets
 Plug 'norcalli/nvim-colorizer.lua'                          " highlight hex codes
-Plug 'itchyny/calendar.vim'                                 " Calendar
+" Plug 'itchyny/calendar.vim'                                 " Calendar
 call plug#end()
 "}}}
 
@@ -199,9 +199,9 @@ lua << EOF
 EOF
 
 " Calendar Settings
-let g:calendar_google_calendar = 1
-let g:calendar_google_task = 1
-source ~/.cache/calendar.vim/credentials.vim
+" let g:calendar_google_calendar = 1
+" let g:calendar_google_task = 1
+" source ~/.cache/calendar.vim/credentials.vim
 
 " indent line filetypes
 let g:indent_blankline_filetype_exclude = ['vimwiki', 'text', 'markdown', 'dashboard', 'startify', 'csv', 'nerdtree', 'netrw', 'help', 'rdoc', 'NvimTree', 'calendar']
