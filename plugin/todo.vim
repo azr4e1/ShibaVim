@@ -47,8 +47,13 @@ function! TODO()
     " this variable is buffer-specific; if it is set,
     " TODO specific autocommands are triggered
     call nvim_buf_set_var(buf, 'todo', 1)
+
+    let Colors = g:colors_name
+    hi TODOBorder guifg=grey40
     let opts = <SID>Set_options()
-    call nvim_open_win(buf, 1, opts)
+    let win = nvim_open_win(buf, 1, opts)
+    call setwinvar(win, '&winhighlight', 'NormalFloat:Normal,FloatBorder:TODOBorder')
+    call setwinvar(win, '&colorcolumn', '')
     setlocal nobuflisted
 
     " if TODO.txt is empty, intialize the file
@@ -57,10 +62,6 @@ function! TODO()
     else
         call <SID>LastChecked()
     endif
-
-    let Colors = g:colors_name
-    hi TODOBorder guifg=grey40
-    call nvim_win_set_option(0, 'winhl', 'Normal:Colors,FloatBorder:TODOBorder')
 
 endfunction
 

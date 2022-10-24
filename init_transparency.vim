@@ -255,10 +255,10 @@ EOF
 "{{{
 " launch colorscheme
 " let g:adwaita_disable_cursorline = v:true
-" let g:adwaita_darker = v:true
+let g:adwaita_darker = v:true
 colorscheme adwaita
 " enable transparency in terminal
-" hi Normal guibg=none
+hi Normal guibg=none
 " set error message
 hi Error guifg=red
 "}}}
@@ -283,11 +283,11 @@ nnoremap <silent> gm :call cursor(0, virtcol('$')/2)<CR>
 " cursorcolumn
 nnoremap <silent> <leader>cc :set cursorcolumn!<CR>
 " Go quickly to init.vim
-nnoremap <silent> <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <silent> <leader>ev :vsplit ~/.vimrc<CR>
 " Go quickly to ginit.vim
 nnoremap <silent> <leader>eg :vsplit ~/.config/nvim/ginit.vim<CR>
 " Source init.vim
-nnoremap <silent> <leader>sv :source $MYVIMRC<CR>
+nnoremap <silent> <leader>sv :source ~/.vimrc<CR>
 " jump to alternate buffer (also CTRL_^)
 nnoremap <silent> - <C-^>
 " remap fold/unfold

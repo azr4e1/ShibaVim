@@ -31,7 +31,11 @@ function! s:NNNChooser_float()
     " set name of temp file local to nnn buffer
     call nvim_buf_set_var(l:buf, 'temp', l:temp)
     let opts = <SID>Set_options()
-    call nvim_open_win(buf, 1, opts)
+    let win = nvim_open_win(buf, 1, opts)
+    hi BrowserBorder guifg=grey40
+    " set aesthetics
+    call setwinvar(win, '&winhighlight', 'NormalFloat:Normal,FloatBorder:BrowserBorder')
+    call setwinvar(win, '&colorcolumn', '')
     setlocal nobuflisted
     let b:nnn = bufnr()
     let b:prev = l:prev
@@ -53,9 +57,6 @@ function! s:NNNChoose(float=1)
     else
         call <SID>NNNChooser()
     endif
-    let Colors = g:colors_name
-    hi BrowserBorder guifg=grey40
-    call nvim_win_set_option(0, 'winhl', 'Normal:Colors,FloatBorder:BrowserBorder')
 endfunction
 
 " open the files selected
