@@ -32,6 +32,7 @@ function! s:HorTerm(cmd)
         let t:term_buf = bufnr()
         " ESC goes to normal mode, but only for this kind of terminal
         tnoremap <buffer><silent> <ESC> <C-\><C-n>
+        let &filetype = 'terminal'
         " jump to original window
         exec "wincmd p | stopinsert"
     else
@@ -50,6 +51,7 @@ function! s:VertTerm(cmd)
         let t:term_id = b:terminal_job_id
         let t:term_buf = bufnr()
         tnoremap <buffer><silent> <ESC> <C-\><C-n>
+        let &filetype = 'terminal'
         " jump to original window
         exec "wincmd p | stopinsert"
     else

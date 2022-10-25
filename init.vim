@@ -80,12 +80,76 @@ Plug 'vim-scripts/dbext.vim'                                " SQL integration
 Plug 'jiangmiao/auto-pairs'                                 " auto pairs for brackets
 Plug 'norcalli/nvim-colorizer.lua'                          " highlight hex codes
 Plug 'sakhnik/nvim-gdb'                                     " Debugging
+Plug 'nvim-lualine/lualine.nvim'                            " Statusline
 " Plug 'itchyny/calendar.vim'                                 " Calendar
 call plug#end()
 "}}}
 
 " Put all the plugin settings here
 "{{{
+" lualine settings
+lua << END
+local function transform_line(line)
+    local line = line:gsub('%s*[%[%(%{]*%s*$', '')
+    line = line:gsub('%b()', '')
+    return line
+end
+
+local function TreeSitter()
+    local scope = require'nvim-treesitter'.statusline({indicator_size=50, transform_fn = transform_line})
+    local status
+    if scope == "" or scope == "null" then
+        status = ""
+    else
+        status = "</> " .. scope
+    end
+    return status
+end
+
+local terminal = { sections = { lualine_a = {'filename'} }, inactive_sections = {lualine_a = {'filename'}}, filetypes = {'terminal'} }
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'auto',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {
+        'startify',
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {},
+    always_divide_middle = true,
+    globalstatus = false,
+    refresh = {
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 1000,
+    }
+  },
+  sections = {
+    lualine_a = {'filename'},
+    lualine_b = {'Branch', 'diff', 'diagnostics'},
+    lualine_c = {},
+    lualine_x = {TreeSitter, 'Spelling', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {'quickfix', 'fzf', 'fugitive', 'nvim-tree', 'man', terminal}
+}
+END
+
 " colorizer settings
 lua <<EOF
 require 'colorizer'.setup {
@@ -377,5 +441,27 @@ function! ToggleFold()
     else
         set foldlevel=0
     endif
+endfunction
+
+function! Spelling()
+    if &spell
+        let status = "暈" . &spelllang
+    else
+        let status = ""
+    endif
+
+    return status
+endfunction
+
+" Display Git branching
+function! Branch()
+    let branch = FugitiveStatusline()
+    if branch ==# ""
+        let status  = ""
+    else
+        let status = " ".substitute(branch, '^.*(\(.*\)).*$', '\1', '')
+    endif
+
+    return status
 endfunction
 " }}}

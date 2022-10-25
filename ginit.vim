@@ -5,10 +5,10 @@
 """ |_| \_|\___|\___/ \_/ |_|_| |_| |_|\____|\__|_|\_\
 
 if exists('g:GtkGuiLoaded')
-    call rpcnotify(1, 'Gui', 'Font', 'FiraCode Nerd Font 12')
+    call rpcnotify(1, 'Gui', 'Font', 'FiraCode Nerd Font Mono 12')
     call rpcnotify(1, 'Gui', 'Option', 'Popupmenu', 0)
 else
-    GuiFont FiraCode Nerd Font:h12
+    GuiFont FiraCode Nerd Font Mono:h12
 endif                                                 
 
 " Enable Mouse
