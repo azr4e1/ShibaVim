@@ -91,7 +91,8 @@ call plug#end()
 lua << END
 local function transform_line(line)
     local line = line:gsub('%s*[%[%(%{]*%s*$', '')
-    line = line:gsub('%b()', '')
+    line = line:gsub('%b().*$', '')
+    line = line:gsub(':$', '')
     return line
 end
 
