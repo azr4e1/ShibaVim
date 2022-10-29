@@ -46,3 +46,12 @@ execute "tnoremap <silent> <M->> \<C-\>\<C-n>a %>% "
 nnoremap <silent> <C-/> :Commentary<CR>
 vnoremap <silent> <C-/> :Commentary<CR>
 inoremap <silent> <C-/> <C-o>:Commentary<CR>
+
+" colorscheme
+" hi clear
+" if exists(g:adwaita_darker)
+"     let g:adwaita_darker = v:false
+" endif
+
+" call plug#load('adwaita.nvim')
+" colorscheme adwaita

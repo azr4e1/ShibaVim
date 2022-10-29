@@ -327,6 +327,8 @@ nmap <silent> <leader>ts <Plug>SendLine
 vmap <silent> <leader>ts <Plug>SendSelection
 nmap <silent> <leader>td <Plug>SendDownLine
 vmap <silent> <leader>td <Plug>SendDownSelection
+nmap <silent> <leader>tc <Plug>ClearTerm
+vmap <silent> <leader>tc <Plug>ClearTerm
 
 nnoremap <silent> <Plug>CreateHorTerm :call CreateTerm("hor", <SID>Interpreter())<CR>
 nnoremap <silent> <Plug>CreateVertTerm :call CreateTerm("vert", <SID>Interpreter())<CR>
@@ -338,5 +340,6 @@ nnoremap <silent> <Plug>KillTerminal :call KillTerm()<CR>
 nnoremap <silent> <Plug>SendLine :call CurrentLine()<CR>
 vnoremap <silent> <Plug>SendSelection :<C-U>call CurrentSel()<CR>
 nnoremap <silent> <Plug>SendDownLine :call DownLine()<CR>
+noremap <silent> <Plug>ClearTerm :call SendCmd("")<CR>
 vnoremap <silent> <Plug>SendDownSelection :<C-U>call DownSelection()<CR>
 "}}}

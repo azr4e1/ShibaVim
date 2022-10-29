@@ -8,12 +8,16 @@ let R_min_editor_width = 18
 let R_objbr_place = 'script,below'
 
 nmap <buffer><silent> <localleader>sr <Plug>RSaveClose
+nmap <buffer><silent> <leader><CR> <Plug>RDSendLine
+vmap <buffer><silent> <leader><CR> <Plug>RDSendSelection
+let R_assign_map = '<M-->'
+execute "inoremap <buffer><silent> <M-.> <ESC>a %>% "
+
 " for GUI instance
 if exists(':GuiFont')
     vmap <buffer><silent> <C-ENTER> <Plug>RDSendSelection
     nmap <buffer><silent> <C-ENTER> <Plug>RDSendLine
     imap <buffer><silent> <C-ENTER> <C-o><Plug>RSendLine
-    let R_assign_map = '<M-->'
     execute "inoremap <buffer><silent> <M-.> <ESC>a %>% "
 endif                                                 
 " LSP

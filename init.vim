@@ -39,7 +39,7 @@ syntax on
 set listchars=eol:↴,lead:⋅,tab:<->
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
-"set foldlevelstart=99
+set foldlevelstart=99
 " set blinking
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
               \,a:blinkwait400-blinkoff600-blinkon900-Cursor/lCursor
@@ -56,8 +56,7 @@ let g:python3_host_prog = '~/.venv/neovim/bin/python'
 
 " Put all the plugins here
 "{{{
-call plug#begin('~/.local.share/nvim/plugged')
-
+call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-surround'                                   " easy bracket managing
 Plug 'tpope/vim-fugitive'                                   " Add integration with Git
 Plug 'tpope/vim-commentary'                                 " easy comment stuff
@@ -67,6 +66,7 @@ Plug 'chrisbra/csv.vim'                                     " csv editing
 Plug 'A0-Z1/vimwiki', {'branch': 'quote_fix'}               " wikis
 Plug 'junegunn/fzf.vim'                                     " fzf integration
 Plug 'Mofiqul/adwaita.nvim'                                 " colorscheme
+Plug 'RRethy/nvim-base16'
 Plug 'mhinz/vim-startify'                                   " startup page
 Plug 'folke/zen-mode.nvim'                                  " focus mode
 Plug 'lukas-reineke/indent-blankline.nvim'                  " indentation guides
@@ -81,14 +81,12 @@ Plug 'jiangmiao/auto-pairs'                                 " auto pairs for bra
 Plug 'norcalli/nvim-colorizer.lua'                          " highlight hex codes
 Plug 'sakhnik/nvim-gdb'                                     " Debugging
 Plug 'nvim-lualine/lualine.nvim'                            " Statusline
-" Plug 'itchyny/calendar.vim'                                 " Calendar
 call plug#end()
 "}}}
-
 " Put all the plugin settings here
 "{{{
 " lualine settings
-lua << END
+lua << EOF
 local function transform_line(line)
     local line = line:gsub('%s*[%[%(%{].*$', '')
     line = line:gsub('%s*:%s*$', '')
@@ -148,8 +146,7 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {'quickfix', 'fzf', 'fugitive', 'nvim-tree', 'man', terminal}
 }
-END
-
+EOF
 " colorizer settings
 lua <<EOF
 require 'colorizer'.setup {
@@ -173,12 +170,6 @@ let g:jupytext_command = '/home/ld/.miniconda3/bin/jupytext'
 " nvim-R
 let g:markdown_fenced_languages = ['r', 'python']
 let g:rmd_fenced_languages = ['r', 'python']
-" " NetRw
-" let g:netrw_banner = 0
-" let g:netrw_liststyle = 3
-" let g:netrw_browse_split = 4
-" let g:netrw_winsize = 25
-
 "" LSP
 " disable virtual text by default
 lua vim.diagnostic.config({virtual_text = false})
@@ -318,11 +309,8 @@ EOF
 " Put all the highlight settings here
 "{{{
 " launch colorscheme
-" let g:adwaita_disable_cursorline = v:true
-" let g:adwaita_darker = v:true
-colorscheme adwaita
-" enable transparency in terminal
-" hi Normal guibg=none
+colorscheme base16-twilight
+" colorscheme one_monokai
 " set error message
 hi Error guifg=red
 "}}}
@@ -376,8 +364,6 @@ nnoremap <silent> <C-j> <C-e>
 nnoremap <silent> <C-k> <C-y>
 inoremap <silent> <C-j> <C-o><C-e>
 inoremap <silent> <C-k> <C-o><C-y>
-" Digraph
-inoremap <silent> <C-e> <C-k>
 " Remap window resizing
 nnoremap <silent> <Up>      :resize +2<CR>
 nnoremap <silent> <Down>    :resize -2<CR>
@@ -431,6 +417,18 @@ nnoremap <silent> <leader>b :Buffers<CR>
 "nnoremap <silent> <leader>ll :source /home/ld/.cache/vim/session/default.vim<CR>:echo "Session restored"<CR>
 " Zen Mode
 nnoremap <silent><leader>z :ZenMode<CR>
+
+nmap <silent> <leader><CR> <Plug>SendDownLine
+vmap <silent> <leader><CR> <Plug>SendDownSelection
+nnoremap <silent> <leader>/ :Commentary<CR>
+vnoremap <silent> <leader>/ :Commentary<CR>
+nnoremap <silent>tn :tabnew<CR>
+nnoremap <silent> <M-,> gT
+nnoremap <silent> <M-.> gt
+nnoremap <silent> <Home> :Startify<CR>
+nnoremap <silent> <leader><BS> zA
+execute 'tnoremap <silent> <M--> \<C-\>\<C-n>a <- '
+execute 'tnoremap <silent> <M->> \<C-\>\<C-n>a %>% '
 "}}}
 
 " Put all functions here
