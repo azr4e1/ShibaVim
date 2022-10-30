@@ -223,6 +223,12 @@ let g:vimwiki_list = [{'path': '~/Desktop/Wikis/Personal',
       \ 'template_path': '~/Desktop/Wikis/templates/',
       \ 'template_ext': '.html',
       \ 'template_default': 'default',
+      \ 'nested_syntaxes': {'python': 'python', 'r': 'r'}},
+      \ {'path': '~/Desktop/Wikis/Finance',
+      \ 'path_html': '~/Desktop/Wikis/Finance/html/',
+      \ 'template_path': '~/Desktop/Wikis/templates/',
+      \ 'template_ext': '.html',
+      \ 'template_default': 'default',
       \ 'nested_syntaxes': {'python': 'python', 'r': 'r'}}]
 let g:vimwiki_key_mappings = {
       \ 'table_mappings': 0
