@@ -1,5 +1,11 @@
 local nvim_lsp = require('lspconfig')
 
+-- LSP settings (for overriding per client) to change border of window
+local handlers =  {
+    ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = 'rounded'}),
+    ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = 'rounded'}),
+}
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 
@@ -51,22 +57,15 @@ for _, lsp in ipairs(servers) do
             on_attach = mappings,
             flags = {
                 debounce_text_changes = 150,
-            }
-        }
-    elseif lsp == 'powershell_es' then
-        nvim_lsp[lsp].setup {
-            on_attach = on_attach,
-            cmd = {'pwsh', '-NoLogo', '-NoProfile', '-Command', "/home/ld/.source/PowerShellEditorServices/module/PowerShellEditorServices/Start-EditorServices.ps1 -BundledModulesPath /home/ld/.source/PowerShellEditorServices/module/PowerShellEditorServices/ -LogPath /home/ld/.cache/powershell_es/logs.log -SessionDetailsPath /home/ld/.cache/powershell_es/session.json -FeatureFlags @() -AdditionalModules @() -HostName 'My Client' -HostProfileId 'myclient' -HostVersion 1.0.0 -Stdio -LogLevel Normal"},
-            flags = {
-                debounce_text_changes = 150,
-            }
+            },
         }
     else
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
             flags = {
                 debounce_text_changes = 150,
-            }
+            },
+            handlers = handlers
         }
     end
 end

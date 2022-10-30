@@ -172,7 +172,7 @@ let g:markdown_fenced_languages = ['r', 'python']
 let g:rmd_fenced_languages = ['r', 'python']
 "" LSP
 " disable virtual text by default
-lua vim.diagnostic.config({virtual_text = false})
+lua vim.diagnostic.config({virtual_text = false, float = {border='rounded'}})
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
@@ -427,8 +427,8 @@ nnoremap <silent> <M-,> gT
 nnoremap <silent> <M-.> gt
 nnoremap <silent> <Home> :Startify<CR>
 nnoremap <silent> <leader><BS> zA
-execute 'tnoremap <silent> <M--> \<C-\>\<C-n>a <- '
-execute 'tnoremap <silent> <M->> \<C-\>\<C-n>a %>% '
+execute 'tnoremap <silent> <M--> <C-\><C-n>a <- '
+execute 'tnoremap <silent> <M->> <C-\><C-n>a %>% '
 "}}}
 
 " Put all functions here
