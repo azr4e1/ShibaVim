@@ -12,6 +12,7 @@ nmap <buffer><silent> <leader><CR> <Plug>RDSendLine
 vmap <buffer><silent> <leader><CR> <Plug>RDSendSelection
 let R_assign_map = '<M-->'
 execute "inoremap <buffer><silent> <M-.> <ESC>a %>% "
+let Rout_more_colors = 1
 
 " for GUI instance
 if exists(':GuiFont')

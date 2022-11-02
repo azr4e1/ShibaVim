@@ -16,10 +16,10 @@ vim.g.diagnostic_visible = true
 function _G.hide_diagnostics()
     if vim.g.diagnostic_visible then
         vim.g.diagnostic_visible = false
-        vim.diagnostic.disable(0, nil)
+        vim.diagnostic.disable()
     else
         vim.g.diagnostic_visible = true
-        vim.diagnostic.enable(0, nil)
+        vim.diagnostic.enable()
     end
 end
 

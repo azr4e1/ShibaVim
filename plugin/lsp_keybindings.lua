@@ -50,7 +50,8 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pylsp', 'r_language_server', 'bashls', 'texlab', 'sumneko_lua', 'julials', 'powershell_es', 'tsserver', 'clangd'}
+-- XXX: remove r_language_server because of some breaking bugs when defining new functions in R
+local servers = { 'pylsp', 'bashls', 'texlab', 'sumneko_lua', 'julials', 'powershell_es', 'tsserver', 'clangd'}
 for _, lsp in ipairs(servers) do
     if lsp == 'r_language_server' then
         nvim_lsp[lsp].setup {
