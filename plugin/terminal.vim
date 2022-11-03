@@ -33,11 +33,15 @@ function! s:HorTerm(cmd)
         " ESC goes to normal mode, but only for this kind of terminal
         tnoremap <buffer><silent> <ESC> <C-\><C-n>
         let &filetype = 'terminal'
+        " fix terminal height
+        setlocal winfixheight
         " jump to original window
         exec "wincmd p | stopinsert"
     else
         " if it exists, open current iteration
         exec 'sbuffer +resize'.float2nr(nvim_list_uis()[0].height*g:window_ratio_hor).' '.t:term_buf
+        " fix terminal height
+        setlocal winfixheight
         exec "normal! G"
         " jump to original window
         exec "wincmd p | stopinsert"
@@ -52,10 +56,14 @@ function! s:VertTerm(cmd)
         let t:term_buf = bufnr()
         tnoremap <buffer><silent> <ESC> <C-\><C-n>
         let &filetype = 'terminal'
+        " fix terminal width
+        setlocal winfixwidth
         " jump to original window
         exec "wincmd p | stopinsert"
     else
         exec 'vert sbuffer '.t:term_buf.' | vertical resize'.float2nr(nvim_list_uis()[0].width*g:window_ratio_vert)
+        " fix terminal width
+        setlocal winfixwidth
         exec "normal! G"
         " jump to original window
         exec "wincmd p | stopinsert"
@@ -118,11 +126,15 @@ function! ToggleTerm()
         if win_numb ==# -1
             if nvim_list_uis()[0].width >= g:switch_to_horizontal
                 exec 'vert sbuffer '.t:term_buf.' | vertical resize'.float2nr(nvim_list_uis()[0].width*g:window_ratio_vert)
+                " fix terminal width
+                setlocal winfixwidth
                 exec "normal! G"
                 " jump to original window
                 exec "wincmd p | stopinsert"
             else
                 exec 'sbuffer +resize'.float2nr(nvim_list_uis()[0].height*g:window_ratio_hor).' '.t:term_buf
+                " fix terminal height
+                setlocal winfixheight
                 exec "normal! G"
                 " jump to original window
                 exec "wincmd p | stopinsert"
