@@ -316,7 +316,7 @@ EOF
 "{{{
 " launch colorscheme
 colorscheme base16-twilight
-" colorscheme one_monokai
+" colorscheme adwaita
 " set error message
 hi Error guifg=red
 "}}}
