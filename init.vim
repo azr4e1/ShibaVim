@@ -65,8 +65,7 @@ Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}                " R develop
 Plug 'chrisbra/csv.vim'                                     " csv editing
 Plug 'A0-Z1/vimwiki', {'branch': 'quote_fix'}               " wikis
 Plug 'junegunn/fzf.vim'                                     " fzf integration
-Plug 'Mofiqul/adwaita.nvim'                                 " colorscheme
-Plug 'RRethy/nvim-base16'
+Plug 'RRethy/nvim-base16'                                   " colorscheme
 Plug 'mhinz/vim-startify'                                   " startup page
 Plug 'folke/zen-mode.nvim'                                  " focus mode
 Plug 'lukas-reineke/indent-blankline.nvim'                  " indentation guides
@@ -316,7 +315,6 @@ EOF
 "{{{
 " launch colorscheme
 colorscheme base16-twilight
-" colorscheme adwaita
 " set error message
 hi Error guifg=red
 "}}}
