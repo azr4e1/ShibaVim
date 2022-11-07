@@ -35,6 +35,7 @@ function! s:HorTerm(cmd)
         let &filetype = 'terminal'
         " fix terminal height
         setlocal winfixheight
+        setlocal nocursorline
         " jump to original window
         exec "wincmd p | stopinsert"
     else
@@ -42,6 +43,7 @@ function! s:HorTerm(cmd)
         exec 'sbuffer +resize'.float2nr(nvim_list_uis()[0].height*g:window_ratio_hor).' '.t:term_buf
         " fix terminal height
         setlocal winfixheight
+        setlocal nocursorline
         exec "normal! G"
         " jump to original window
         exec "wincmd p | stopinsert"
@@ -58,12 +60,14 @@ function! s:VertTerm(cmd)
         let &filetype = 'terminal'
         " fix terminal width
         setlocal winfixwidth
+        setlocal nocursorline
         " jump to original window
         exec "wincmd p | stopinsert"
     else
         exec 'vert sbuffer '.t:term_buf.' | vertical resize'.float2nr(nvim_list_uis()[0].width*g:window_ratio_vert)
         " fix terminal width
         setlocal winfixwidth
+        setlocal nocursorline
         exec "normal! G"
         " jump to original window
         exec "wincmd p | stopinsert"
@@ -128,6 +132,7 @@ function! ToggleTerm()
                 exec 'vert sbuffer '.t:term_buf.' | vertical resize'.float2nr(nvim_list_uis()[0].width*g:window_ratio_vert)
                 " fix terminal width
                 setlocal winfixwidth
+                setlocal nocursorline
                 exec "normal! G"
                 " jump to original window
                 exec "wincmd p | stopinsert"
@@ -135,6 +140,7 @@ function! ToggleTerm()
                 exec 'sbuffer +resize'.float2nr(nvim_list_uis()[0].height*g:window_ratio_hor).' '.t:term_buf
                 " fix terminal height
                 setlocal winfixheight
+                setlocal nocursorline
                 exec "normal! G"
                 " jump to original window
                 exec "wincmd p | stopinsert"
