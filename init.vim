@@ -65,6 +65,7 @@ Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}                " R develop
 Plug 'chrisbra/csv.vim'                                     " csv editing
 Plug 'A0-Z1/vimwiki', {'branch': 'quote_fix'}               " wikis
 Plug 'junegunn/fzf.vim'                                     " fzf integration
+Plug 'Mofiqul/adwaita.nvim'
 Plug 'RRethy/nvim-base16'                                   " colorscheme
 Plug 'mhinz/vim-startify'                                   " startup page
 Plug 'folke/zen-mode.nvim'                                  " focus mode
@@ -314,6 +315,7 @@ EOF
 " Put all the highlight settings here
 "{{{
 " launch colorscheme
+" colorscheme adwaita
 colorscheme base16-twilight
 " set error message
 hi Error guifg=red

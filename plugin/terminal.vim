@@ -258,7 +258,9 @@ endfunction
 " Depending on the file, return a different interpreter
 " to be opened with CreateTerm
 function! s:Interpreter()
-    if &filetype ==# "python"
+    if &filetype ==# "python" && expand("%:e") ==# "ipynb"
+        let interpreter = "ipython --no-autoindent"
+    elseif &filetype ==# "python"
         let interpreter = "python"
     elseif &filetype ==# "r" || &filetype ==# "rmd"
         let interpreter = "R"
