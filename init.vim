@@ -81,6 +81,7 @@ Plug 'jiangmiao/auto-pairs'                                 " auto pairs for bra
 Plug 'norcalli/nvim-colorizer.lua'                          " highlight hex codes
 Plug 'sakhnik/nvim-gdb'                                     " Debugging
 Plug 'nvim-lualine/lualine.nvim'                            " Statusline
+Plug 'glacambre/firenvim'                                   " Firenvim integration
 call plug#end()
 "}}}
 " Put all the plugin settings here
@@ -317,6 +318,7 @@ EOF
 " launch colorscheme
 " colorscheme adwaita
 colorscheme base16-twilight
+" hi Normal guibg=none
 " set error message
 hi Error guifg=red
 "}}}

@@ -16,6 +16,8 @@ nnoremap <buffer><silent> <localleader>jn :Notebook<CR>
 nnoremap <silent><buffer> <C-down> :call NextChunk()<CR>
 nnoremap <silent><buffer> <C-up> :call PrevChunk()<CR>
 
+nnoremap <silent><buffer> <localleader><CR> :call DownLine_noIndent()<CR>
+
 nnoremap <buffer><silent> <leader><CR> :call SendDownLine_Python()<CR>
 vnoremap <buffer><silent> <leader><CR> :<C-U>call DownSelection_nonewline()<CR>
 if exists(':GuiFont') || exists('g:GtkGuiLoaded')

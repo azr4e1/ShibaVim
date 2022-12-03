@@ -255,6 +255,23 @@ function! SendDownLine_Python()
     endif
 endfunction
 
+" send current line to the terminal, stripped of indentation
+function! CurrentLine_noIndent()
+    call SendCmd(trim(getline("."))."\n")
+    if bufwinnr(t:term_buf) != -1
+        call ShowLastLine()
+    endif
+endfunction
+
+function! DownLine_noIndent()
+    if t:term_id ==# -1
+        echohl Warning | echom "No terminal active!" | echohl None
+    else
+        call CurrentLine_noIndent()
+        execute "normal! j"
+    endif
+endfunction
+
 " Depending on the file, return a different interpreter
 " to be opened with CreateTerm
 function! s:Interpreter()
