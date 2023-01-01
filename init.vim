@@ -391,6 +391,12 @@ nnoremap <silent> <leader>qn :cnext<CR>
 nnoremap <silent> <leader>qp :cprev<CR>
 nnoremap <silent> <leader>qf :cfirst<CR>
 nnoremap <silent> <leader>ql :clast<CR>
+nnoremap <silent> <leader>lo :lopen<CR>
+nnoremap <silent> <leader>lq :lclose<CR>
+nnoremap <silent> <leader>ln :lnext<CR>
+nnoremap <silent> <leader>lp :lprev<CR>
+nnoremap <silent> <leader>lf :lfirst<CR>
+nnoremap <silent> <leader>ll :llast<CR>
 " compile
 nnoremap <silent> <leader>x :make %<CR>
 " Project drawer
@@ -415,10 +421,12 @@ command! Myscripts :Files ~/.scripts
 nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <silent> <leader>fm :Marks<CR>
 nnoremap <silent> <leader>fh :History<CR>
-nnoremap <silent> <leader>fw :Rg<CR>
+nnoremap <silent> <leader>fg :Rg<CR>
 nnoremap <silent> <leader>fc :Colors<CR>
 nnoremap <silent> <leader>fs :Files ~/.scripts<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
+
+nnoremap <silent> <leader>fw :Files ~/Desktop/Wikis/<CR>
 
 " save session
 "nnoremap <silent> <leader>ss :mksession! /home/ld/.cache/vim/session/default.vim<CR>:echo "Session saved"<CR>
