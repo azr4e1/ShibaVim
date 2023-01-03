@@ -65,7 +65,6 @@ Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}                " R develop
 Plug 'chrisbra/csv.vim'                                     " csv editing
 Plug 'A0-Z1/vimwiki', {'branch': 'quote_fix'}               " wikis
 Plug 'junegunn/fzf.vim'                                     " fzf integration
-Plug 'Mofiqul/adwaita.nvim'
 Plug 'RRethy/nvim-base16'                                   " colorscheme
 Plug 'mhinz/vim-startify'                                   " startup page
 Plug 'folke/zen-mode.nvim'                                  " focus mode
@@ -81,7 +80,6 @@ Plug 'jiangmiao/auto-pairs'                                 " auto pairs for bra
 Plug 'norcalli/nvim-colorizer.lua'                          " highlight hex codes
 Plug 'sakhnik/nvim-gdb'                                     " Debugging
 Plug 'nvim-lualine/lualine.nvim'                            " Statusline
-Plug 'glacambre/firenvim'                                   " Firenvim integration
 call plug#end()
 "}}}
 " Put all the plugin settings here
