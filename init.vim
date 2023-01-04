@@ -78,7 +78,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " treesitter
 Plug 'vim-scripts/dbext.vim'                                " SQL integration
 Plug 'jiangmiao/auto-pairs'                                 " auto pairs for brackets
 Plug 'norcalli/nvim-colorizer.lua'                          " highlight hex codes
-Plug 'sakhnik/nvim-gdb'                                     " Debugging
 Plug 'nvim-lualine/lualine.nvim'                            " Statusline
 call plug#end()
 "}}}
