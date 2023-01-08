@@ -66,6 +66,7 @@ Plug 'chrisbra/csv.vim'                                     " csv editing
 Plug 'A0-Z1/vimwiki', {'branch': 'quote_fix'}               " wikis
 Plug 'junegunn/fzf.vim'                                     " fzf integration
 Plug 'RRethy/nvim-base16'                                   " colorscheme
+Plug 'azr4e1/adwaita.nvim'                                  " colorscheme
 Plug 'mhinz/vim-startify'                                   " startup page
 Plug 'folke/zen-mode.nvim'                                  " focus mode
 Plug 'lukas-reineke/indent-blankline.nvim'                  " indentation guides
@@ -79,10 +80,15 @@ Plug 'vim-scripts/dbext.vim'                                " SQL integration
 Plug 'jiangmiao/auto-pairs'                                 " auto pairs for brackets
 Plug 'norcalli/nvim-colorizer.lua'                          " highlight hex codes
 Plug 'nvim-lualine/lualine.nvim'                            " Statusline
+Plug 'linty-org/key-menu.nvim'                              " mapping hint
 call plug#end()
 "}}}
 " Put all the plugin settings here
 "{{{
+" key-menu settings
+lua vim.o.timeoutlen = 700
+lua require 'key-menu'.set('n', '<Space>')
+lua require 'key-menu'.set('n', '\\')
 " lualine settings
 lua << EOF
 local function transform_line(line)
@@ -106,7 +112,7 @@ local terminal = { sections = { lualine_a = {'filename'} }, inactive_sections = 
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'auto',
+    theme = 'adwaita',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
@@ -192,39 +198,39 @@ augroup END
 " vimwiki
 "let g:vimwiki_folding = 'expr'
 let g:vimwiki_toc_link_format = 1
-let g:vimwiki_list = [{'path': '~/Desktop/Wikis/Personal',
-      \ 'path_html': '~/Desktop/Wikis/Personal/html/',
-      \ 'template_path': '~/Desktop/Wikis/templates/',
+let g:vimwiki_list = [{'path': '~/Documents/Wikis/Personal',
+      \ 'path_html': '~/Documents/Wikis/Personal/html/',
+      \ 'template_path': '~/Documents/Wikis/templates/',
+      \ 'template_ext': '.html',
+      \ 'template_default': 'default',
+      \ 'nested_syntaxes': {'python': 'python', 'r': 'r', 'lua':'lua'}},
+      \ {'path': '~/Documents/Wikis/Machine\ Learning',
+      \ 'path_html': '~/Documents/Wikis/Machine\ Learning/html/',
+      \ 'template_path': '~/Documents/Wikis/templates/',
       \ 'template_ext': '.html',
       \ 'template_default': 'default',
       \ 'nested_syntaxes': {'python': 'python', 'r': 'r'}},
-      \ {'path': '~/Desktop/Wikis/Machine\ Learning',
-      \ 'path_html': '~/Desktop/Wikis/Machine\ Learning/html/',
-      \ 'template_path': '~/Desktop/Wikis/templates/',
+      \ {'path': '~/Documents/Wikis/Coding',
+      \ 'path_html': '~/Documents/Wikis/Coding/html/',
+      \ 'template_path': '~/Documents/Wikis/templates/',
       \ 'template_ext': '.html',
       \ 'template_default': 'default',
       \ 'nested_syntaxes': {'python': 'python', 'r': 'r'}},
-      \ {'path': '~/Desktop/Wikis/Coding',
-      \ 'path_html': '~/Desktop/Wikis/Coding/html/',
-      \ 'template_path': '~/Desktop/Wikis/templates/',
+      \ {'path': '~/Documents/Wikis/Statistics',
+      \ 'path_html': '~/Documents/Wikis/Statistics/html/',
+      \ 'template_path': '~/Documents/Wikis/templates/',
       \ 'template_ext': '.html',
       \ 'template_default': 'default',
       \ 'nested_syntaxes': {'python': 'python', 'r': 'r'}},
-      \ {'path': '~/Desktop/Wikis/Statistics',
-      \ 'path_html': '~/Desktop/Wikis/Statistics/html/',
-      \ 'template_path': '~/Desktop/Wikis/templates/',
+      \ {'path': '~/Documents/Wikis/Marketing',
+      \ 'path_html': '~/Documents/Wikis/Marketing/html/',
+      \ 'template_path': '~/Documents/Wikis/templates/',
       \ 'template_ext': '.html',
       \ 'template_default': 'default',
       \ 'nested_syntaxes': {'python': 'python', 'r': 'r'}},
-      \ {'path': '~/Desktop/Wikis/Marketing',
-      \ 'path_html': '~/Desktop/Wikis/Marketing/html/',
-      \ 'template_path': '~/Desktop/Wikis/templates/',
-      \ 'template_ext': '.html',
-      \ 'template_default': 'default',
-      \ 'nested_syntaxes': {'python': 'python', 'r': 'r'}},
-      \ {'path': '~/Desktop/Wikis/Finance',
-      \ 'path_html': '~/Desktop/Wikis/Finance/html/',
-      \ 'template_path': '~/Desktop/Wikis/templates/',
+      \ {'path': '~/Documents/Wikis/Finance',
+      \ 'path_html': '~/Documents/Wikis/Finance/html/',
+      \ 'template_path': '~/Documents/Wikis/templates/',
       \ 'template_ext': '.html',
       \ 'template_default': 'default',
       \ 'nested_syntaxes': {'python': 'python', 'r': 'r'}}]
@@ -313,8 +319,9 @@ EOF
 " Put all the highlight settings here
 "{{{
 " launch colorscheme
-" colorscheme adwaita
-colorscheme base16-twilight
+" let g:adwaita_darker = v:true " for darker version
+colorscheme adwaita
+" colorscheme base16-twilight
 " hi Normal guibg=none
 " set error message
 hi Error guifg=red
@@ -442,6 +449,9 @@ nnoremap <silent> <Home> :Startify<CR>
 nnoremap <silent> <leader><BS> zA
 execute 'tnoremap <silent> <M--> <C-\><C-n>a <- '
 execute 'tnoremap <silent> <M->> <C-\><C-n>a %>% '
+
+" Fugitive
+nnoremap <silent> <leader>g :G<CR>
 "}}}
 
 " Put all functions here
