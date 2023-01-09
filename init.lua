@@ -144,6 +144,11 @@ require('plugins')
 --------------------------------------
 -- Put all the plugin settings here --
 --------------------------------------
+-- SuperTab plugins
+vim.g.SuperTabDefaultCompletionType = "context"
+vim.g.SuperTabContextDefaultCompletionType = "<c-n>"
+vim.g.SuperTabRetainCompletionDuration = 'completion'
+vim.g.SuperTabContextTextOmniPrecedence = {'&omnifunc', '&completefunc'}
 -- key-menu settings
 vim.o.timeoutlen = 700
 require 'key-menu'.set('n', '<Space>')

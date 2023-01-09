@@ -21,6 +21,7 @@ if exists(':GuiFont')
     imap <buffer><silent> <C-ENTER> <C-o><Plug>RSendLine
     execute "inoremap <buffer><silent> <M-.> <ESC>a %>% "
 endif                                                 
+let b:SuperTabContextTextMemberPatterns = ['\.', '\$', ':', '@']
 " LSP
 "setlocal omnifunc=v:lua.vim.lsp.omnifunc
 "" terminal commands

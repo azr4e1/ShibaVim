@@ -7,6 +7,7 @@ nnoremap <buffer><silent> <leader>wu :!update_wiki<CR>
 setlocal spell! spelllang=en_gb
 
 nnoremap <buffer> <leader>vws :VWS 
+let b:SuperTabContextTextMemberPatterns = ['\[', '#', ':']
 
 " hi Warning guifg=red
 " function! PreviousTODO()

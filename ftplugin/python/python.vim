@@ -23,4 +23,5 @@ vnoremap <buffer><silent> <leader><CR> :<C-U>call DownSelection_nonewline()<CR>
 if exists(':GuiFont') || exists('g:GtkGuiLoaded')
     nnoremap <buffer><silent> <C-ENTER> :call SendDownLine_Python()<CR>
     vnoremap <buffer><silent> <C-ENTER> :<C-U>call DownSelection_nonewline()<CR>
-endif                                                 
+endif
+let b:SuperTabContextTextMemberPatterns = ['\.', '@']
