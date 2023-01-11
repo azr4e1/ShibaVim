@@ -153,6 +153,8 @@ vim.g.SuperTabContextTextOmniPrecedence = {'&omnifunc', '&completefunc'}
 vim.o.timeoutlen = 700
 require 'key-menu'.set('n', '<Space>')
 require 'key-menu'.set('n', '\\')
+vim.api.nvim_set_hl(0, 'KeyMenuFloatBorder', {fg="grey40"})
+vim.api.nvim_set_hl(0, 'KeyMenuNormal', {fg="grey40"})
 -- lualine settings
 local function transform_line(line)
     local line = line:gsub('%s*[%[%(%{].*$', '')
@@ -281,7 +283,7 @@ require("zen-mode").setup {
 }
 -- IndetLine settings
 require("indent_blankline").setup {
-	filetype_exclude = {"vimwiki", "text", "markdown", "dashboard", "startify", "csv", "nerdtree", "netrw", "help", "rdoc", "NvimTree", "calendar"},
+	filetype_exclude = {"vimwiki", "text", "markdown", "dashboard", "startify", "csv", "nerdtree", "netrw", "help", "rdoc", "NvimTree", "calendar", "keymenu"},
 	buftype_exclude = {"terminal"},
 	max_indent_increase = 1,
 	show_current_context = true,
