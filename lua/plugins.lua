@@ -3,6 +3,7 @@
 ------------------------------
 return require('packer').startup(function(use)
     -- Packer can manage itself
+    use 'wbthomason/packer.nvim'
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
@@ -15,7 +16,6 @@ return require('packer').startup(function(use)
         'jalvesaq/Nvim-R',
         branch = 'stable'
     }
-    use 'wbthomason/packer.nvim'
     use 'tpope/vim-surround'
     use 'tpope/vim-fugitive'
     use 'tpope/vim-commentary'

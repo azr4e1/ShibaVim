@@ -343,30 +343,6 @@ augroup END
 " remaps
 " {{{
 
-" Create\delete terminal buffer in split window.
-" If a terminal buffer is open but hidden, take it
-" into active mode instead of creating another terminal
-" buffer
-" NB sbuffer +resizeM N means I am using the cmd resize. A command in sbuffer
-" must be prefixed with +. Also, float2nr converts floats to ints. Necessary
-" since window resizing only takes integers.
-nmap <silent> <leader>th <Plug>CreateHorTerm
-nmap <silent> <leader>tv <Plug>CreateVertTerm
-nmap <silent> <leader>tT <Plug>CreateDynamicTerm
-nmap <silent> <leader>TT <Plug>CreateDynamicCons
-nmap <silent> <leader>tD <Plug>CreateDynamicDebugger
-nmap <silent> <leader>tt <Plug>ToggleTerminal
-nmap <silent> <leader>tk <Plug>KillTerminal
-
-" copy lines of code into the terminal
-" but if there is no terminal, send a warning
-nmap <silent> <leader>ts <Plug>SendLine
-vmap <silent> <leader>ts <Plug>SendSelection
-nmap <silent> <leader>td <Plug>SendDownLine
-vmap <silent> <leader>td <Plug>SendDownSelection
-nmap <silent> <leader>tc <Plug>ClearTerm
-vmap <silent> <leader>tc <Plug>ClearTerm
-
 nnoremap <silent> <Plug>CreateHorTerm :call CreateTerm("hor", <SID>Interpreter())<CR>
 nnoremap <silent> <Plug>CreateVertTerm :call CreateTerm("vert", <SID>Interpreter())<CR>
 nnoremap <silent> <Plug>CreateDynamicTerm :call CreateTermDynamic(<SID>Interpreter())<CR>

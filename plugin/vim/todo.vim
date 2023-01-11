@@ -65,6 +65,5 @@ function! TODO()
 
 endfunction
 
-nmap <silent> <leader>to <Plug>SpawnTODO
 nnoremap <silent> <Plug>SpawnTODO :call TODO()<CR>
 command! TODO :call TODO()
