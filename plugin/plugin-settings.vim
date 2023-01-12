@@ -14,7 +14,7 @@ let g:SuperTabRetainCompletionDuration = 'completion'
 let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
 " indent line settings
 " indent line filetypes
-let g:indent_blankline_filetype_exclude = ['vimwiki', 'text', 'markdown', 'dashboard', 'startify', 'csv', 'nerdtree', 'netrw', 'help', 'rdoc', 'NvimTree', 'calendar', 'keymenu']
+let g:indent_blankline_filetype_exclude = ['vimwiki', 'text', 'markdown', 'dashboard', 'startify', 'csv', 'nerdtree', 'netrw', 'help', 'rdoc', 'NvimTree', 'calendar', 'keymenu', 'packer']
 let g:indent_blankline_buftype_exclude = ['terminal']
 let g:indent_blankline_max_indent_increase = 1
 let g:indent_blankline_show_current_context = v:true

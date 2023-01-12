@@ -1,4 +1,4 @@
-local no_plugins = require('plugins')
+local no_plugins = require('core.plugins')
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 -- copy to clipboard

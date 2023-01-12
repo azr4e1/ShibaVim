@@ -16,24 +16,25 @@ return require('packer').startup(function(use)
         'jalvesaq/Nvim-R',                     -- R
         branch = 'stable'
     }
-    use {
-        'mfussenegger/nvim-dap',               -- debugger
-        opt = true,
-        -- event = "BufReadPre",
-        module = { "dap" },
-        requires = {
-            {
-                'mfussenegger/nvim-dap-python',
-                module = 'dap-python',
-                opt = true
-            },
-            {
-                'rcarriga/nvim-dap-ui',
-                module = "dapui",
-                opt = true
-            }
-        }
-    }
+    -- use {
+    --     'mfussenegger/nvim-dap',               -- debugger
+    --     opt = true,
+    --     event = "BufReadPre",
+    --     module = "dap",
+    --     requires = {
+    --         {
+    --             'mfussenegger/nvim-dap-python',
+    --             module = 'dap-python',
+    --         },
+    --         {
+    --             'rcarriga/nvim-dap-ui',
+    --             module = "dapui",
+    --         }
+    --     }
+    -- }
+    use 'mfussenegger/nvim-dap'
+    use 'mfussenegger/nvim-dap-python'
+    use 'rcarriga/nvim-dap-ui'
     use 'tpope/vim-surround'                   -- easy wrapping
     use 'tpope/vim-fugitive'                   -- git
     use 'tpope/vim-commentary'                 -- commenting

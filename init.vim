@@ -55,3 +55,5 @@ let g:python3_host_prog = '~/.venv/neovim/bin/python'
 colorscheme adwaita
 hi Error guifg=red
 "}}}
+
+lua require('core')

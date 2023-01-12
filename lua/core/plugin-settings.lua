@@ -1,10 +1,8 @@
-local plugins = require('plugins')
 -- key-menu settings
 vim.o.timeoutlen = 700
 require 'key-menu'.set('n', '<Space>')
 require 'key-menu'.set('n', '\\')
 vim.api.nvim_set_hl(0, 'KeyMenuFloatBorder', {fg="grey40"})
--- vim.api.nvim_set_hl(0, 'KeyMenuNormal', {fg="grey40"})
 -- lualine settings
 local function transform_line(line)
     local line = line:gsub('%s*[%[%(%{].*$', '')
@@ -159,7 +157,6 @@ require'nvim-treesitter.configs'.setup {
     },
 }
 -- Dap settings
-require('dap-python').setup(os.getenv("HOME") .. '/.venv/neovim/bin/python')
 local dap_breakpoint = {
     error = {
         text = "",
@@ -192,6 +189,7 @@ vim.fn.sign_define("DapLogPoint", dap_breakpoint.log)
 vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
 
 local dap, dapui = require'dap', require'dapui'
+-- dap.setup{}
 dapui.setup{}
 dap.listeners.after.event_initialized['dapui_config'] = function()
     dapui.open()
@@ -202,3 +200,4 @@ end
 dap.listeners.before.event_terminated['dapui_config'] = function()
     dapui.close()
 end
+require('dap-python').setup(os.getenv("HOME") .. '/.venv/neovim/bin/python')
