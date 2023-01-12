@@ -78,6 +78,8 @@ vim.api.nvim_set_keymap("n", "<leader>fw", ":Files " .. HOME .. "/Documents/Wiki
 vim.api.nvim_set_keymap("n", "<leader>z", ":ZenMode<CR>", {silent=true, noremap=true, desc="Toggle Zen Mode"})
 vim.api.nvim_set_keymap("n", "<CR>", "<Plug>SendDownLine", {silent=true, desc="Send line to terminal and move down"})
 vim.api.nvim_set_keymap("v", "<CR>", "<Plug>SendDownSelection", {silent=true, desc="Send selection to terminal and move down"})
+vim.api.nvim_set_keymap("n", "<leader><CR>", "<CR>", {silent=true, noremap=true})
+vim.api.nvim_set_keymap("v", "<leader><CR>", "<CR>", {silent=true, noremap=true})
 vim.api.nvim_set_keymap("n", "<C-_>", ":Commentary<CR>", {silent=true, noremap=true, desc="Toggle Comment"})
 vim.api.nvim_set_keymap("v", "<C-_>", ":Commentary<CR>", {silent=true, noremap=true, desc="Toggle Comment"})
 vim.api.nvim_set_keymap("n", "<Home>", ":Startify<CR>", {silent=true, noremap=true})

@@ -1,4 +1,4 @@
-require('plugins')
+local plugins = require('plugins')
 -- key-menu settings
 vim.o.timeoutlen = 700
 require 'key-menu'.set('n', '<Space>')

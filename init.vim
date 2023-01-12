@@ -32,10 +32,6 @@ set updatetime=250
 " set mouse
 set mouse=a
 set omnifunc=syntaxcomplete#Complete
-filetype plugin on
-syntax on
-"" don't implement dbext stupid keybindings
-"let g:omni_sql_no_default_maps = 1
 set listchars=eol:↴,lead:⋅,tab:<->
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
