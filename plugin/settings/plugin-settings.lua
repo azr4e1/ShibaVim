@@ -158,3 +158,47 @@ require'nvim-treesitter.configs'.setup {
         },
     },
 }
+-- Dap settings
+require('dap-python').setup(os.getenv("HOME") .. '/.venv/neovim/bin/python')
+local dap_breakpoint = {
+    error = {
+        text = "",
+        texthl = "LspDiagnosticsSignError",
+        linehl = "",
+        numhl = "",
+    },
+    rejected = {
+      text = "",
+      texthl = "LspDiagnosticsSignHint",
+      linehl = "",
+      numhl = "",
+    },
+    conditional = {
+      text = "",
+      texthl = "LspDiagnosticsSignError",
+      linehl = "",
+      numhl = "",
+    },
+    log = {
+      text = "",
+      texthl = "LspDiagnosticsSignError",
+      linehl = "",
+      numhl = "",
+    }
+}
+vim.fn.sign_define("DapBreakpoint", dap_breakpoint.error)
+vim.fn.sign_define("DapBreakpointCondition", dap_breakpoint.conditional)
+vim.fn.sign_define("DapLogPoint", dap_breakpoint.log)
+vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
+
+local dap, dapui = require'dap', require'dapui'
+dapui.setup{}
+dap.listeners.after.event_initialized['dapui_config'] = function()
+    dapui.open()
+end
+dap.listeners.before.event_exited['dapui_config'] = function()
+    dapui.close()
+end
+dap.listeners.before.event_terminated['dapui_config'] = function()
+    dapui.close()
+end

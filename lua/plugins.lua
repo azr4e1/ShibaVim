@@ -3,38 +3,56 @@
 ------------------------------
 return require('packer').startup(function(use)
     -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+    use 'wbthomason/packer.nvim'               -- packer
     use {
-        'nvim-treesitter/nvim-treesitter',
+        'nvim-treesitter/nvim-treesitter',     -- treesitter
         run = ':TSUpdate'
     }
     use {
-        'A0-Z1/vimwiki',
+        'A0-Z1/vimwiki',                       -- vimwiki
         branch = 'quote_fix'
     }
     use {
-        'jalvesaq/Nvim-R',
+        'jalvesaq/Nvim-R',                     -- R
         branch = 'stable'
     }
-    use 'tpope/vim-surround'
-    use 'tpope/vim-fugitive'
-    use 'tpope/vim-commentary'
-    use 'neovim/nvim-lspconfig'
-    use 'chrisbra/csv.vim'
-    use 'junegunn/fzf.vim'
-    use 'RRethy/nvim-base16'
-    use 'azr4e1/adwaita.nvim'
-    use 'mhinz/vim-startify'
-    use 'folke/zen-mode.nvim'
-    use 'lukas-reineke/indent-blankline.nvim'
-    use 'ervandew/supertab'
-    use 'goerz/jupytext.vim'
-    use 'kyazdani42/nvim-web-devicons'
-    use 'kyazdani42/nvim-tree.lua'
-    use 'lewis6991/gitsigns.nvim'
-    use 'vim-scripts/dbext.vim'
-    use 'jiangmiao/auto-pairs'
-    use 'norcalli/nvim-colorizer.lua'
-    use 'nvim-lualine/lualine.nvim'
-    use 'linty-org/key-menu.nvim'
+    use {
+        'mfussenegger/nvim-dap',               -- debugger
+        opt = true,
+        -- event = "BufReadPre",
+        module = { "dap" },
+        requires = {
+            {
+                'mfussenegger/nvim-dap-python',
+                module = 'dap-python',
+                opt = true
+            },
+            {
+                'rcarriga/nvim-dap-ui',
+                module = "dapui",
+                opt = true
+            }
+        }
+    }
+    use 'tpope/vim-surround'                   -- easy wrapping
+    use 'tpope/vim-fugitive'                   -- git
+    use 'tpope/vim-commentary'                 -- commenting
+    use 'neovim/nvim-lspconfig'                -- LSP
+    use 'chrisbra/csv.vim'                     -- CSV
+    use 'junegunn/fzf.vim'                     -- FZF
+    use 'RRethy/nvim-base16'                   -- base16 theme
+    use 'azr4e1/adwaita.nvim'                  -- adwaita theme
+    use 'mhinz/vim-startify'                   -- splash screen
+    use 'folke/zen-mode.nvim'                  -- focus window
+    use 'lukas-reineke/indent-blankline.nvim'  -- indentation guides
+    use 'ervandew/supertab'                    -- tab completion
+    use 'goerz/jupytext.vim'                   -- jupyter notebook integration
+    use 'kyazdani42/nvim-web-devicons'         -- icons for project sidebar
+    use 'kyazdani42/nvim-tree.lua'             -- project sidebar
+    use 'lewis6991/gitsigns.nvim'              -- git signs
+    use 'vim-scripts/dbext.vim'                -- SQL
+    use 'jiangmiao/auto-pairs'                 -- easy bracketing
+    use 'norcalli/nvim-colorizer.lua'          -- color visualizer
+    use 'nvim-lualine/lualine.nvim'            -- statusline
+    use 'linty-org/key-menu.nvim'              -- mapping hints
 end)
