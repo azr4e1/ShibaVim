@@ -16,22 +16,6 @@ return require('packer').startup(function(use)
         'jalvesaq/Nvim-R',                     -- R
         branch = 'stable'
     }
-    -- use {
-    --     'mfussenegger/nvim-dap',               -- debugger
-    --     opt = true,
-    --     event = "BufReadPre",
-    --     module = "dap",
-    --     requires = {
-    --         {
-    --             'mfussenegger/nvim-dap-python',
-    --             module = 'dap-python',
-    --         },
-    --         {
-    --             'rcarriga/nvim-dap-ui',
-    --             module = "dapui",
-    --         }
-    --     }
-    -- }
     use 'mfussenegger/nvim-dap'
     use 'mfussenegger/nvim-dap-python'
     use 'rcarriga/nvim-dap-ui'

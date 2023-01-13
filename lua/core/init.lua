@@ -1,5 +1,5 @@
-require('core.settings')
 require('core.plugins')
+require('core.settings')
 require('core.keymaps')
 require('lsp.lsp-keybindings')
 require('lsp.lsp-completion-signs')
