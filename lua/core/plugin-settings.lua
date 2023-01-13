@@ -156,7 +156,7 @@ require'nvim-treesitter.configs'.setup {
         },
     },
 }
--- Dap settings
+-- DAP settings
 local dap_breakpoint = {
     error = {
         text = "",
@@ -189,7 +189,6 @@ vim.fn.sign_define("DapLogPoint", dap_breakpoint.log)
 vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
 
 local dap, dapui = require'dap', require'dapui'
--- dap.setup{}
 dapui.setup{}
 dap.listeners.after.event_initialized['dapui_config'] = function()
     dapui.open()
@@ -200,4 +199,5 @@ end
 dap.listeners.before.event_terminated['dapui_config'] = function()
     dapui.close()
 end
+-- python debugger
 require('dap-python').setup(os.getenv("HOME") .. '/.venv/neovim/bin/python')
