@@ -1,6 +1,3 @@
-" Startify settings
-let g:startify_custom_header =
-      \ 'startify#center(startify#fortune#cowsay())'
 " jupytext settings
 let g:jupytext_fmt = 'py'
 let g:jupytext_command = '/home/ld/.miniconda3/bin/jupytext'

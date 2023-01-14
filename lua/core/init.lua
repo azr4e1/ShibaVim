@@ -1,4 +1,5 @@
 require('core.plugins')
 require('core.settings')
 require('core.keymaps')
-require('core.plugin-settings')
+require('plugin-config.lualine')
+require('plugin-config.key-menu')

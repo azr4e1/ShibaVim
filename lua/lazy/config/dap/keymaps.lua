@@ -2,7 +2,7 @@ vim.api.nvim_set_keymap("n", "<F4>", ":lua require'dap'.run_last()<CR>", {silent
 vim.api.nvim_set_keymap("n", "<F5>", ":lua require'dap'.continue()<CR>", {silent=true, noremap=true, desc="Start debugger"})
 vim.api.nvim_set_keymap("n", "<F11>", ":lua require'dap'.step_over()<CR>", {silent=true, noremap=true, desc="Step over"})
 vim.api.nvim_set_keymap("n", "<F12>", ":lua require'dap'.step_into()<CR>", {silent=true, noremap=true, desc="Step into"})
-vim.api.nvim_set_keymap("n", "<End>", ":lua require'dap'.step_out()<CR>", {silent=true, noremap=true, desc="Step out"})
+vim.api.nvim_set_keymap("n", "<Home>",":lua require'dap'.step_out()<CR>", {silent=true, noremap=true, desc="Step out"})
 vim.api.nvim_set_keymap("n", "<F6>", ":lua require'dap'.clear_breakpoints()<CR>", {silent=true, noremap=true, desc="Remove all breakpoints"})
 vim.api.nvim_set_keymap("n", "<F7>", ":lua require'dap'.toggle_breakpoint()<CR>", {silent=true, noremap=true, desc="Toggle breakpoint"})
 vim.api.nvim_set_keymap("n", "<F8>", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", {silent=true, noremap=true, desc="Set breakpoint with condition"})

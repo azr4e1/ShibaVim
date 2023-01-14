@@ -88,15 +88,9 @@ return require('packer').startup(function(use)
     use {'folke/zen-mode.nvim',
         cmd = 'ZenMode',
         config = function()
-            require'zen-mode'.setup {
-                window = {
-                    backdrop = 0.90, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
-                    width = 120, -- width of the Zen window
-                    height = 1, -- height of the Zen window
-                }
-            }
+            require'plugin-config.zen-mode'.setup()
         end
-        }
+    }
     -- git signs
     use {'lewis6991/gitsigns.nvim',
         event = 'BufReadPre',
@@ -108,13 +102,7 @@ return require('packer').startup(function(use)
     use {'lukas-reineke/indent-blankline.nvim',
         after = 'nvim-treesitter',
         config = function()
-            require('indent_blankline').setup {
-                filetype_exclude = {'vimwiki', 'text', 'markdown', 'dashboard', 'startify', 'csv', 'nerdtree', 'netrw', 'help', 'rdoc', 'NvimTree', 'calendar', 'keymenu', 'packer'},
-                buftype_exclude = {'terminal'},
-                max_indent_increase = 1,
-                show_current_context = true,
-                show_current_context_start = false
-            }
+            require('plugin-config.indent-blankline').setup()
         end
     }
     -- color visualizer
@@ -125,23 +113,40 @@ return require('packer').startup(function(use)
                'ColorizerReloadAllBuffers',
                'ColorizerToggle'},
         config = function()
-            require 'colorizer'.setup {
-              'css';
-              'javascript';
-              'html';
-            }
+            require 'plugin-config.colorizer'.setup()
         end
     }
-    use 'tpope/vim-surround'                   -- easy wrapping
-    use 'tpope/vim-commentary'                 -- commenting
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
+    use {
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+        config = function()
+            require("nvim-surround").setup()
+        end
+    }
+    use {'glepnir/dashboard-nvim',
+        config = function()
+            require'plugin-config.dashboard'.setup()
+        end
+    }
+    use {'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        requires = { {'nvim-lua/plenary.nvim'} },
+        cmd = 'Telescope'
+    }
     use 'chrisbra/csv.vim'                     -- CSV
-    use 'junegunn/fzf.vim'                     -- FZF
     use 'azr4e1/adwaita.nvim'                  -- adwaita theme
-    use 'mhinz/vim-startify'                   -- splash screen
     use 'ervandew/supertab'                    -- tab completion
     use 'goerz/jupytext.vim'                   -- jupyter notebook integration
     use 'vim-scripts/dbext.vim'                -- SQL
-    use 'jiangmiao/auto-pairs'                 -- easy bracketing
     use 'nvim-lualine/lualine.nvim'            -- statusline
     use 'linty-org/key-menu.nvim'              -- mapping hints
 end)
