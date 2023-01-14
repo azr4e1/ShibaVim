@@ -32,15 +32,8 @@ local function Spelling()
 end
 
 local function Branch()
-    local branch
-    local status
-    branch = vim.fn["FugitiveStatusline"]()
-    if branch == "" then
-        status = ""
-    else
-        status = " " .. branch:match("%((.-)%)")
-    end
-    return status
+    local branch = " " .. vim.b.gitsigns_head
+    return branch
 end
 
 local terminal = { sections = { lualine_a = {'filename'} }, inactive_sections = {lualine_a = {'filename'}}, filetypes = {'terminal'} }
@@ -83,44 +76,7 @@ require('lualine').setup {
   tabline = {},
   winbar = {},
   inactive_winbar = {},
-  extensions = {'quickfix', 'fzf', 'fugitive', 'nvim-tree', 'man', terminal}
-}
--- colorizer settings
-require 'colorizer'.setup {
-  'css';
-  'javascript';
-  'html';
-}
-
--- GitSigns settings
-require('gitsigns').setup()
--- NvimTree settings
-require("nvim-tree").setup()
--- LSP
--- disable virtual text by default
-vim.diagnostic.config({virtual_text = false, float = {border='rounded'}})
--- zen mode settings
-require("zen-mode").setup {
-    window = {
-        backdrop = 0.90, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
-        -- height and width can be:
-        -- * an absolute number of cells when > 1
-        -- * a percentage of the width / height of the editor when <= 1
-        -- * a function that returns the width or the height
-        width = 120, -- width of the Zen window
-        height = 1, -- height of the Zen window
-        -- by default, no options are changed for the Zen window
-        -- uncomment any of the options below, or add other vim.wo options you want to apply
-        options = {
-          -- signcolumn = "no", -- disable signcolumn
-          -- number = false, -- disable number column
-          -- relativenumber = false, -- disable relative numbers
-          -- cursorline = false, -- disable cursorline
-          -- cursorcolumn = false, -- disable cursor column
-          -- foldcolumn = "0", -- disable fold column
-          -- list = false, -- disable whitespace characters
-        }
-    }
+  extensions = {'quickfix', 'fzf', 'nvim-tree', 'man', terminal}
 }
 -- Treesitter settings
 require'nvim-treesitter.configs'.setup {
@@ -156,48 +112,3 @@ require'nvim-treesitter.configs'.setup {
         },
     },
 }
--- DAP settings
-local dap_breakpoint = {
-    error = {
-        text = "",
-        texthl = "LspDiagnosticsSignError",
-        linehl = "",
-        numhl = "",
-    },
-    rejected = {
-      text = "",
-      texthl = "LspDiagnosticsSignHint",
-      linehl = "",
-      numhl = "",
-    },
-    conditional = {
-      text = "",
-      texthl = "LspDiagnosticsSignError",
-      linehl = "",
-      numhl = "",
-    },
-    log = {
-      text = "",
-      texthl = "LspDiagnosticsSignError",
-      linehl = "",
-      numhl = "",
-    }
-}
-vim.fn.sign_define("DapBreakpoint", dap_breakpoint.error)
-vim.fn.sign_define("DapBreakpointCondition", dap_breakpoint.conditional)
-vim.fn.sign_define("DapLogPoint", dap_breakpoint.log)
-vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
-
-local dap, dapui = require'dap', require'dapui'
-dapui.setup{}
-dap.listeners.after.event_initialized['dapui_config'] = function()
-    dapui.open()
-end
-dap.listeners.before.event_exited['dapui_config'] = function()
-    dapui.close()
-end
-dap.listeners.before.event_terminated['dapui_config'] = function()
-    dapui.close()
-end
--- python debugger
-require('dap-python').setup(os.getenv("HOME") .. '/.venv/neovim/bin/python')

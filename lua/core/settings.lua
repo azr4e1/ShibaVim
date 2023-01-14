@@ -39,6 +39,8 @@ vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait400
 ---------------------------------------------
 vim.g.tex_flavor = "latex"
 vim.g.python3_host_prog = HOME .. "/.venv/neovim/bin/python"
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -----------------------------------------
 -- Put all the highlight settings here --

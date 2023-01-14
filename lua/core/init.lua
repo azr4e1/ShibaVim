@@ -1,8 +1,4 @@
 require('core.plugins')
 require('core.settings')
 require('core.keymaps')
-require('lsp.lsp-keybindings')
-require('lsp.lsp-completion-signs')
-require('lsp.lsp-diagnostic-signs')
-require('lsp.lsp-toggle-diagnostic')
 require('core.plugin-settings')
