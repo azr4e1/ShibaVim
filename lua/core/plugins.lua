@@ -148,8 +148,17 @@ return require('packer').startup(function(use)
     use {'chrisbra/csv.vim',                   -- CSV
         ft = {'csv'}
     }
+    -- Cmp
+    use "hrsh7th/nvim-cmp"  -- The completion plugin
+    use "hrsh7th/cmp-buffer" -- buffer completions
+    use "hrsh7th/cmp-path" -- path completions
+    use "saadparwaiz1/cmp_luasnip" -- snippet completions
+    use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-nvim-lua"
+    use 'hrsh7th/cmp-cmdline'
+    use "L3MON4D3/LuaSnip" --snippet engine
+    use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
     use 'azr4e1/adwaita.nvim'                  -- adwaita theme
-    use 'ervandew/supertab'                    -- tab completion
     use 'goerz/jupytext.vim'                   -- jupyter notebook integration
     use 'vim-scripts/dbext.vim'                -- SQL
     use 'nvim-lualine/lualine.nvim'            -- statusline
