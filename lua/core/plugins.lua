@@ -109,7 +109,7 @@ return require('packer').startup(function(use)
                'ColorizerReloadAllBuffers',
                'ColorizerToggle'},
         config = function()
-            require 'plugin-config.colorizer'.setup()
+            require 'lazy.nvim-colorizer'.setup()
         end
     }
     use {

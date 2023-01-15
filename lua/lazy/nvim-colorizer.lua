@@ -7,7 +7,7 @@ local configure = {
 }
 
 function M.setup()
-    require'nvim-colorizer'.setup(configure)
+    require'colorizer'.setup(configure)
 end
 
 return M
