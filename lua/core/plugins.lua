@@ -36,6 +36,7 @@ return require('packer').startup(function(use)
     use {
         'jalvesaq/Nvim-R',
         branch = 'stable',
+        ft = {'r', 'rmd'}
     }
     -- debugger
     use {
@@ -94,6 +95,7 @@ return require('packer').startup(function(use)
     -- git signs
     use {'lewis6991/gitsigns.nvim',
         event = 'BufReadPre',
+        cmd = "Gitsigns",
         config = function()
             require'gitsigns'.setup()
         end
@@ -124,7 +126,8 @@ return require('packer').startup(function(use)
     }
     use {
         "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
+        event = 'InsertEnter',
+        config = function() require("plugin-config.autopairs").setup {} end
     }
     use {
         "kylechui/nvim-surround",
@@ -139,10 +142,12 @@ return require('packer').startup(function(use)
         end
     }
     use {'nvim-telescope/telescope.nvim', tag = '0.1.0',
-        requires = { {'nvim-lua/plenary.nvim'} },
+        requires = {'nvim-lua/plenary.nvim'},
         cmd = 'Telescope'
     }
-    use 'chrisbra/csv.vim'                     -- CSV
+    use {'chrisbra/csv.vim',                   -- CSV
+        ft = {'csv'}
+    }
     use 'azr4e1/adwaita.nvim'                  -- adwaita theme
     use 'ervandew/supertab'                    -- tab completion
     use 'goerz/jupytext.vim'                   -- jupyter notebook integration

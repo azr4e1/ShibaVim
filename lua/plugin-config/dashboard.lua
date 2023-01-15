@@ -3,7 +3,6 @@ local M = {}
 local function configure()
     local home = os.getenv('HOME')
     local db = require('dashboard')
-    -- macos
     -- db.preview_command = 'cat | lolcat'
     -- db.preview_file_path = home .. '/.config/nvim/static/neovim.txt'
     -- db.preview_file_height = 9
@@ -20,7 +19,16 @@ local function configure()
         ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
         ''
     }
+    db.custom_footer = function()
+        local date = os.date()
+        return {"Welcome back! Today is ", date}
+    end
     db.custom_center = {
+        {
+            icon = '  ',
+            desc = 'New file                                       ',
+            shortcut = '',
+            action ="enew | lua require'lualine'.setup()"},
         {
             icon = '  ',
             desc = 'Recently opened session                 ',
@@ -43,13 +51,13 @@ local function configure()
             shortcut = 'SPC f w'},
         {
             icon = '  ',
-            desc ='Project Browser                          ',
+            desc = 'Project Browser                         ',
             action =  'Telescope find_files cwd=' .. home .. '/Desktop/Projects',
             shortcut = 'SPC f p'},
         {
             icon = '  ',
             desc = 'Open Personal Scripts                   ',
-            action = 'MyScripts' .. home ..'/.scripts',
+            action = 'Telescope find_files cwd=' .. home .. '/.scripts',
             shortcut = 'SPC f s'},
       }
 end
