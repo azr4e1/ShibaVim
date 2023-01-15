@@ -18,8 +18,8 @@ nnoremap <silent><buffer> <C-up> :call PrevChunk()<CR>
 
 nnoremap <silent><buffer> <localleader><CR> :call DownLine_noIndent()<CR>
 
-nnoremap <buffer><silent> <CR> :call SendDownLine_Python()<CR>
-vnoremap <buffer><silent> <CR> :<C-U>call DownSelection_nonewline()<CR>
+nnoremap <buffer><silent> <leader><CR> :call SendDownLine_Python()<CR>
+vnoremap <buffer><silent> <leader><CR> :<C-U>call DownSelection_nonewline()<CR>
 if exists(':GuiFont') || exists('g:GtkGuiLoaded')
     nnoremap <buffer><silent> <C-ENTER> :call SendDownLine_Python()<CR>
     vnoremap <buffer><silent> <C-ENTER> :<C-U>call DownSelection_nonewline()<CR>

@@ -38,6 +38,9 @@ return require('packer').startup(function(use)
         branch = 'stable',
         ft = {'r', 'rmd'}
     }
+    -- Mason
+    use { "williamboman/mason.nvim" }
+    use "williamboman/mason-lspconfig.nvim"
     -- debugger
     use {
         'mfussenegger/nvim-dap',
@@ -71,16 +74,7 @@ return require('packer').startup(function(use)
     }
     -- LSP
     use {'neovim/nvim-lspconfig',
-        ft = {'python',
-              'r',
-              'rmd',
-              'julia',
-              'sh',
-              'javascript',
-              'typescript',
-              'c',
-              'cpp',
-              'tex'},
+        event = 'BufReadPre',
         config = function()
             require'lazy.nvim-lsp'.setup()
         end
@@ -143,7 +137,8 @@ return require('packer').startup(function(use)
     }
     use {'nvim-telescope/telescope.nvim', tag = '0.1.0',
         requires = {'nvim-lua/plenary.nvim'},
-        cmd = 'Telescope'
+        cmd = 'Telescope',
+        config = function() require'telescope'.setup() end
     }
     use {'chrisbra/csv.vim',                   -- CSV
         ft = {'csv'}

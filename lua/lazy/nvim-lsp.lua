@@ -1,7 +1,5 @@
 local M = {}
 
-local M = {}
-
 function M.setup()
     -- disable virtual text by default
     vim.diagnostic.config({virtual_text = false, float = {border='rounded'}})

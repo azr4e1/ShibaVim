@@ -1,4 +1,5 @@
 local nvim_lsp = require('lspconfig')
+local mason_lsp = require('mason-lspconfig')
 
 -- LSP settings (for overriding per client) to change border of window
 local handlers =  {
@@ -8,7 +9,6 @@ local handlers =  {
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-
 local mappings = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
@@ -48,25 +48,27 @@ local on_attach = function(client, bufnr)
     mappings(client, bufnr)
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
--- XXX: remove r_language_server because of some breaking bugs when defining new functions in R
-local servers = { 'pylsp', 'bashls', 'texlab', 'julials', 'tsserver', 'clangd', 'r_language_server'}
-for _, lsp in ipairs(servers) do
-    if lsp == 'r_language_server' then
-        nvim_lsp[lsp].setup {
-            on_attach = mappings,
-            flags = {
-                debounce_text_changes = 150,
-            },
-        }
-    else
-        nvim_lsp[lsp].setup {
-            on_attach = on_attach,
-            flags = {
-                debounce_text_changes = 150,
-            },
-            handlers = handlers
-        }
+local configure_lsp = {
+    on_attach = on_attach,
+    flags = {
+        debounce_text_changes = 150,
+    },
+    handlers = handlers
+}
+
+local configure_lsp_R = {
+    on_attach = mappings,
+    flags = {
+        debounce_text_changes = 150,
+    },
+    handlers = handlers
+}
+
+mason_lsp.setup_handlers {
+    function (server_name)
+        nvim_lsp[server_name].setup(configure_lsp)
+    end,
+    ['r_language_server'] = function ()
+        nvim_lsp['r_language_server'].setup(configure_lsp_R)
     end
-end
+}

@@ -54,7 +54,7 @@ cmp.setup {
             i = cmp.mapping.abort(),
             c = function()
                 if cmp.visible() then
-                    cmp.close()
+                    cmp.abort()
                 else
                     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-c>', true, true, true), 'n', true)
                 end
@@ -151,4 +151,11 @@ cmp.setup.cmdline(':', {
       }
     }
   })
+})
+
+cmp.setup.filetype({'markdown', 'text'}, {
+    sources = {
+        { name = 'path' },
+        { name = 'buffer' },
+    }
 })
