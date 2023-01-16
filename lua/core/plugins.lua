@@ -62,12 +62,10 @@ return require('packer').startup(function(use)
         end
     }
     -- project sidebar
+    use 'nvim-tree/nvim-web-devicons'
     use {'nvim-tree/nvim-tree.lua',
         opt = true,
         cmd = 'NvimTreeToggle',
-        requires = {
-                'nvim-tree/nvim-web-devicons'
-            },
         config = function()
             require'nvim-tree'.setup()
         end
