@@ -67,8 +67,8 @@ local configure_lsp_R = {
 mason_lsp.setup_handlers {
     function (server_name)
         nvim_lsp[server_name].setup(configure_lsp)
-    end,
-    ['r_language_server'] = function ()
-        nvim_lsp['r_language_server'].setup(configure_lsp_R)
     end
+    -- ['r-languageserver'] = function ()
+    --     nvim_lsp['r_language_server'].setup(configure_lsp_R)
+    -- end
 }

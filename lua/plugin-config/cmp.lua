@@ -103,6 +103,7 @@ cmp.setup {
                 luasnip = "[Snippet]",
                 buffer = "[Buffer]",
                 path = "[Path]",
+                omni = "[Omni]"
             })[entry.source.name]
             return vim_item
         end,

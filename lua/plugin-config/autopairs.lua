@@ -40,4 +40,4 @@ function M.setup()
     )
 end
 
-return M
+M.setup()

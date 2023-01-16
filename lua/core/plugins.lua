@@ -118,11 +118,7 @@ return require('packer').startup(function(use)
             require('Comment').setup()
         end
     }
-    use {
-        "windwp/nvim-autopairs",
-        event = 'InsertEnter',
-        config = function() require("plugin-config.autopairs").setup {} end
-    }
+    use {"windwp/nvim-autopairs"}
     use {
         "kylechui/nvim-surround",
         tag = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -137,7 +133,7 @@ return require('packer').startup(function(use)
     }
     use {'nvim-telescope/telescope.nvim', tag = '0.1.0',
         requires = {'nvim-lua/plenary.nvim'},
-        cmd = 'Telescope',
+        -- cmd = 'Telescope',
         config = function() require'telescope'.setup() end
     }
     use {'chrisbra/csv.vim',                   -- CSV
@@ -152,6 +148,7 @@ return require('packer').startup(function(use)
     use "hrsh7th/cmp-nvim-lua"
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
+    use 'hrsh7th/cmp-omni'
     use "L3MON4D3/LuaSnip" --snippet engine
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
     use 'azr4e1/adwaita.nvim'                  -- adwaita theme
