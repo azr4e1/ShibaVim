@@ -73,12 +73,7 @@ return require('packer').startup(function(use)
         end
     }
     -- LSP
-    use {'neovim/nvim-lspconfig',
-        event = 'BufReadPre',
-        config = function()
-            require'lazy.nvim-lsp'.setup()
-        end
-    }
+    use {'neovim/nvim-lspconfig'}
     -- focus window
     use {'folke/zen-mode.nvim',
         cmd = 'ZenMode',
