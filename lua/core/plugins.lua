@@ -41,17 +41,14 @@ return require('packer').startup(function(use)
     -- Mason
     use { "williamboman/mason.nvim" }
     use "williamboman/mason-lspconfig.nvim"
+    use "jay-babu/mason-nvim-dap.nvim"
     -- debugger
     use {
         'mfussenegger/nvim-dap',
-        event = 'BufReadPre',
+        event = 'VimEnter',
         opt = true,
         module = "dap",
         requires = {
-            {
-                'mfussenegger/nvim-dap-python',
-                module = 'dap-python',
-            },
             {
                 'rcarriga/nvim-dap-ui',
                 module = "dapui",

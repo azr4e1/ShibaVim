@@ -48,17 +48,10 @@ local function configure_exts()
     end
 end
 
-local function configure_debuggers()
-    -- require("lazy.dap.lua").setup()
-    require("lazy.config.dap.python").setup()
-    -- require("lazy.dap.rust").setup()
-    -- require("lazy.dap.go").setup()
-end
-
 function M.setup()
     configure() -- Configuration
     configure_exts() -- Extensions
-    configure_debuggers() -- Debugger
+    require('mason-nvim-dap').setup_handlers()
     require("lazy.config.dap.keymaps") -- Keymaps
 end
 
