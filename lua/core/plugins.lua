@@ -144,6 +144,7 @@ return require('packer').startup(function(use)
     use 'vim-scripts/dbext.vim'                -- SQL
     use 'nvim-lualine/lualine.nvim'            -- statusline
     use 'linty-org/key-menu.nvim'              -- mapping hints
+    use {'vimwiki/vimwiki'}
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then

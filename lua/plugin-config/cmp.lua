@@ -160,3 +160,11 @@ cmp.setup.filetype({'markdown', 'text'}, {
         { name = 'buffer' },
     }
 })
+
+cmp.setup.filetype({'vimwiki'}, {
+    sources = {
+        { name = 'path' },
+        { name = 'buffer' },
+        { name = 'omni' },
+    }
+})

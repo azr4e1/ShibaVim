@@ -59,6 +59,11 @@ local function configure()
             desc = 'Open Personal Scripts                   ',
             action = 'Telescope find_files cwd=' .. home .. '/.scripts',
             shortcut = 'SPC f s'},
+        {
+            icon = '  ',
+            desc = 'Open Personal Wikis                     ',
+            action = 'lua require"plugins.wiki-picker".wiki_picker()',
+            shortcut = 'SPC w s'},
       }
 end
 
