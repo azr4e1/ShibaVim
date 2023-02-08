@@ -87,7 +87,7 @@ vim.api.nvim_set_keymap("v", "<leader><CR>", "<Plug>SendDownSelection", {silent=
 -- vim.api.nvim_set_keymap("n", "<leader><CR>", "<CR>", {silent=true, noremap=true})
 -- vim.api.nvim_set_keymap("v", "<leader><CR>", "<CR>", {silent=true, noremap=true})
 vim.api.nvim_set_keymap("n", "<C-_>", "<Plug>(comment_toggle_linewise_current)", {silent=true, noremap=true, desc="Toggle Comment"})
-vim.api.nvim_set_keymap("i", "<C-_>", "<C-o><Plug>(comment_toggle_linewise_current)", {silent=true, noremap=true, desc="Toggle Comment"})
+vim.api.nvim_set_keymap("i", "<C-_>", "<ESC><Plug>(comment_toggle_linewise_current)A", {silent=true, noremap=true, desc="Toggle Comment"})
 vim.api.nvim_set_keymap("v", "<C-_>", "<Plug>(comment_toggle_linewise_visual)", {silent=true, noremap=true, desc="Toggle Comment"})
 vim.api.nvim_set_keymap("n", "<leader>ss", ":SessionSave<CR>", {silent=true, noremap=true, desc="Save Session"})
 vim.api.nvim_set_keymap("n", "<leader>sl", ":SessionLoad ", {noremap=true, desc="Load Session"})
