@@ -31,7 +31,26 @@ local function Branch()
     return branch
 end
 
-local terminal = { sections = { lualine_a = {'filename'} }, inactive_sections = {lualine_a = {'filename'}}, filetypes = {'terminal'} }
+local function FileName()
+    local bufnr = vim.fn.bufnr()
+    local file = vim.fn.bufname(bufnr)
+    local statusline = vim.fn.pathshorten(vim.fn.fnamemodify(file, ':p:~:t'))
+    local modified = vim.fn.getbufvar(bufnr, '&modified')
+    local modifiable = vim.fn.getbufvar(bufnr, '&modifiable')
+    local readonly = vim.fn.getbufvar(bufnr, '&readonly')
+
+    if modified == 1 then
+        statusline  =statusline .. ' ' .. ''
+    elseif modifiable ~= 1 then
+        statusline = statusline .. ' ' .. ''
+    elseif readonly == 1 then
+        statusline = statusline .. ' ' .. ''
+    end
+
+    return statusline
+end
+
+local terminal = { sections = { lualine_a = {FileName} }, inactive_sections = {lualine_a = {FileName}}, filetypes = {'terminal'} }
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -53,7 +72,7 @@ require('lualine').setup {
     }
   },
   sections = {
-    lualine_a = {'filename'},
+    lualine_a = {FileName},
     lualine_b = {Branch, 'diff', 'diagnostics'},
     lualine_c = {},
     lualine_x = {TreeSitter, Spelling, 'filetype'},
@@ -63,7 +82,7 @@ require('lualine').setup {
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = {'filename'},
+    lualine_c = {FileName},
     lualine_x = {'location'},
     lualine_y = {},
     lualine_z = {}

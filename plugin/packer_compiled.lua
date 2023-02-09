@@ -192,6 +192,12 @@ _G.packer_plugins = {
     path = "/home/ld/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["luatab.nvim"] = {
+    config = { "\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vluatab\frequire\0" },
+    loaded = true,
+    path = "/home/ld/.local/share/nvim/site/pack/packer/start/luatab.nvim",
+    url = "https://github.com/azr4e1/luatab.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/ld/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -336,6 +342,10 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
+-- Config for: dashboard-nvim
+time([[Config for dashboard-nvim]], true)
+try_loadstring("\27LJ\2\nE\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\28plugin-config.dashboard\frequire\0", "config", "dashboard-nvim")
+time([[Config for dashboard-nvim]], false)
 -- Config for: Comment.nvim
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
@@ -344,10 +354,10 @@ time([[Config for Comment.nvim]], false)
 time([[Config for nvim-surround]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
 time([[Config for nvim-surround]], false)
--- Config for: dashboard-nvim
-time([[Config for dashboard-nvim]], true)
-try_loadstring("\27LJ\2\nE\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\28plugin-config.dashboard\frequire\0", "config", "dashboard-nvim")
-time([[Config for dashboard-nvim]], false)
+-- Config for: luatab.nvim
+time([[Config for luatab.nvim]], true)
+try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vluatab\frequire\0", "config", "luatab.nvim")
+time([[Config for luatab.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-treesitter ]]
@@ -367,20 +377,6 @@ pcall(vim.api.nvim_create_user_command, 'Gitsigns', function(cmdargs)
           require('packer.load')({'gitsigns.nvim'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('Gitsigns ', 'cmdline')
       end})
-pcall(vim.api.nvim_create_user_command, 'NvimTreeToggle', function(cmdargs)
-          require('packer.load')({'nvim-tree.lua'}, { cmd = 'NvimTreeToggle', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'nvim-tree.lua'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('NvimTreeToggle ', 'cmdline')
-      end})
-pcall(vim.api.nvim_create_user_command, 'ColorizerReloadAllBuffers', function(cmdargs)
-          require('packer.load')({'nvim-colorizer.lua'}, { cmd = 'ColorizerReloadAllBuffers', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'nvim-colorizer.lua'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('ColorizerReloadAllBuffers ', 'cmdline')
-      end})
 pcall(vim.api.nvim_create_user_command, 'ColorizerAttachToBuffer', function(cmdargs)
           require('packer.load')({'nvim-colorizer.lua'}, { cmd = 'ColorizerAttachToBuffer', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
@@ -395,12 +391,12 @@ pcall(vim.api.nvim_create_user_command, 'ColorizerDetachFromBuffer', function(cm
           require('packer.load')({'nvim-colorizer.lua'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('ColorizerDetachFromBuffer ', 'cmdline')
       end})
-pcall(vim.api.nvim_create_user_command, 'ZenMode', function(cmdargs)
-          require('packer.load')({'zen-mode.nvim'}, { cmd = 'ZenMode', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+pcall(vim.api.nvim_create_user_command, 'ColorizerReloadAllBuffers', function(cmdargs)
+          require('packer.load')({'nvim-colorizer.lua'}, { cmd = 'ColorizerReloadAllBuffers', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
         {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'zen-mode.nvim'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('ZenMode ', 'cmdline')
+          require('packer.load')({'nvim-colorizer.lua'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('ColorizerReloadAllBuffers ', 'cmdline')
       end})
 pcall(vim.api.nvim_create_user_command, 'ColorizerToggle', function(cmdargs)
           require('packer.load')({'nvim-colorizer.lua'}, { cmd = 'ColorizerToggle', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
@@ -409,18 +405,32 @@ pcall(vim.api.nvim_create_user_command, 'ColorizerToggle', function(cmdargs)
           require('packer.load')({'nvim-colorizer.lua'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('ColorizerToggle ', 'cmdline')
       end})
+pcall(vim.api.nvim_create_user_command, 'NvimTreeToggle', function(cmdargs)
+          require('packer.load')({'nvim-tree.lua'}, { cmd = 'NvimTreeToggle', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'nvim-tree.lua'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('NvimTreeToggle ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'ZenMode', function(cmdargs)
+          require('packer.load')({'zen-mode.nvim'}, { cmd = 'ZenMode', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'zen-mode.nvim'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('ZenMode ', 'cmdline')
+      end})
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType html ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "html" }, _G.packer_plugins)]]
 vim.cmd [[au FileType css ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "css" }, _G.packer_plugins)]]
 vim.cmd [[au FileType javascript ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "javascript" }, _G.packer_plugins)]]
-vim.cmd [[au FileType csv ++once lua require("packer.load")({'csv.vim'}, { ft = "csv" }, _G.packer_plugins)]]
 vim.cmd [[au FileType rmd ++once lua require("packer.load")({'Nvim-R'}, { ft = "rmd" }, _G.packer_plugins)]]
 vim.cmd [[au FileType r ++once lua require("packer.load")({'Nvim-R'}, { ft = "r" }, _G.packer_plugins)]]
+vim.cmd [[au FileType csv ++once lua require("packer.load")({'csv.vim'}, { ft = "csv" }, _G.packer_plugins)]]
+vim.cmd [[au FileType html ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "html" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)

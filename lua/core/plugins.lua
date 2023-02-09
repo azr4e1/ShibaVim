@@ -117,6 +117,7 @@ return require('packer').startup(function(use)
         end
     }
     use {'glepnir/dashboard-nvim',
+        commit = '1aab263f4773106abecae06e684f762d20ef587e',
         config = function()
             require'plugin-config.dashboard'.setup()
         end
@@ -126,6 +127,11 @@ return require('packer').startup(function(use)
     }
     use {'chrisbra/csv.vim',                   -- CSV
         ft = {'csv'}
+    }
+    use {'azr4e1/luatab.nvim',
+        config = function()
+            require'luatab'.setup()
+        end
     }
     -- Cmp
     use "hrsh7th/nvim-cmp"  -- The completion plugin
