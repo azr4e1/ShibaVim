@@ -38,9 +38,12 @@ local function FileName()
     local modified = vim.fn.getbufvar(bufnr, '&modified')
     local modifiable = vim.fn.getbufvar(bufnr, '&modifiable')
     local readonly = vim.fn.getbufvar(bufnr, '&readonly')
+    local terminal_filetype = vim.bo.filetype
 
-    if modified == 1 then
-        statusline  =statusline .. ' ' .. ''
+    if terminal_filetype == "terminal" then
+        statusline = '' .. ' ' .. statusline:gsub('^.*:', '')
+    elseif modified == 1 then
+        statusline  = statusline .. ' ' .. ''
     elseif modifiable ~= 1 then
         statusline = statusline .. ' ' .. ''
     elseif readonly == 1 then
