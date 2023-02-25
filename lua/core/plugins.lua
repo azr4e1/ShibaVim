@@ -116,11 +116,10 @@ return require('packer').startup(function(use)
             require("nvim-surround").setup()
         end
     }
-    use {'glepnir/dashboard-nvim',
-        commit = '1aab263f4773106abecae06e684f762d20ef587e',
-        config = function()
-            require'plugin-config.dashboard'.setup()
-        end
+    use {'goolord/alpha-nvim',
+         config = function ()
+             require'plugin-config.alpha'.setup()
+         end
     }
     use {'nvim-telescope/telescope.nvim', tag = '0.1.0',
         requires = {'nvim-lua/plenary.nvim'},
@@ -158,10 +157,11 @@ return require('packer').startup(function(use)
                 },
                 excluded_filetypes = {
                     "dashboard",
-                    "key-menu",
+                    "keymenu",
                     "mason",
                     "TelescopePrompt",
-                    "NvimTree"
+                    "NvimTree",
+                    'alpha'
                 }
             })
         end

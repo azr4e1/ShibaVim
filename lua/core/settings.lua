@@ -47,3 +47,4 @@ vim.g.loaded_netrwPlugin = 1
 -----------------------------------------
 vim.api.nvim_command("colorscheme adwaita")
 vim.api.nvim_set_hl(0, 'Error', {fg="red"})
+vim.api.nvim_set_hl(0, 'ModeMsg', {bg=nil})
