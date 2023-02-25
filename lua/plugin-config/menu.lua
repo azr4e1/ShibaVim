@@ -31,5 +31,5 @@ vim.cmd'nnoremenu <silent> PopUp.Search\\ References :lua vim.lsp.buf.references
 vim.cmd'inoremenu <silent> PopUp.Search\\ References <C-o>:lua vim.lsp.buf.references()<CR>'
 vim.cmd'nnoremenu <silent> PopUp.Go\\ To\\ Definition :lua vim.lsp.buf.definition()<CR>'
 vim.cmd'inoremenu <silent> PopUp.Go\\ To\\ Definition <C-o>:lua vim.lsp.buf.definition()<CR>'
-vim.cmd'nnoremenu <silent> PopUp.Information :lua vim.lsp.buf.hover()<CR>'
-vim.cmd'inoremenu <silent> PopUp.Information <C-o>:lua vim.lsp.buf.hover()<CR>'
+vim.cmd'nnoremenu <silent> PopUp.Object\\ Information :lua vim.lsp.buf.hover()<CR>'
+vim.cmd'inoremenu <silent> PopUp.Object\\ Information <C-o>:lua vim.lsp.buf.hover()<CR>'
