@@ -62,7 +62,21 @@ cmp.setup {
         },
         -- Accept currently selected item. If none selected, `select` first item.
         -- Set `select` to `false` to only confirm explicitly selected items.
-        ["<CR>"] = cmp.mapping.confirm { select = false },
+        -- ["<CR>"] = cmp.mapping.confirm { select = false },
+        ["<CR>"] = cmp.mapping {
+            i = cmp.mapping.confirm { select = false },
+            c = function()
+                    if cmp.visible() then
+                        if cmp.get_active_entry() ~= nil then
+                            cmp.confirm({select=false})
+                        else
+                        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, true, true), 'n', true)
+                        end
+                    else
+                        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, true, true), 'n', true)
+                    end
+                end
+        },
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
