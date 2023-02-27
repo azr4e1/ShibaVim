@@ -85,7 +85,7 @@ M.wiki_picker = function()
         previewer = M.previewer.new_buffer_previewer {
             title = "Index preview",
             define_preview = function(self, entry, status)
-                return require('telescope.config').values.buffer_previewer_maker(entry.value, self.state.bufnr)
+                return require('telescope.config').values.buffer_previewer_maker(entry.value, self.state.bufnr, {use_ft_detect = true})
             end
         },
         attach_mappings = function(prompt_bufnr, map)
