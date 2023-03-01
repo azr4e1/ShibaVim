@@ -24,8 +24,8 @@ M.updateVimwikiList = function (folders)
         local item = {
             path = M.config.projectsFolder..'/'..f,
             path_html = M.config.projectsFolder .. '/html/' .. f,
-            template_path = M.config.projectsFolder .. '/templates',
-            template_ext = 'html',
+            template_path = M.config.projectsFolder .. '/templates/',
+            template_ext = '.html',
             template_default = 'default',
             nested_syntaxes = {python = 'python', r = 'r'}
         }

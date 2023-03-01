@@ -32,12 +32,6 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
-    -- R
-    use {
-        'jalvesaq/Nvim-R',
-        branch = 'stable',
-        ft = {'r', 'rmd'}
-    }
     -- Mason
     use { "williamboman/mason.nvim" }
     use "williamboman/mason-lspconfig.nvim"
