@@ -80,7 +80,7 @@ require('lualine').setup {
     lualine_b = {Branch, 'diff', 'diagnostics'},
     lualine_c = {},
     lualine_x = {TreeSitter, Spelling, 'filetype'},
-    lualine_y = {'progress'},
+    lualine_y = {'%P'},
     lualine_z = {'location'}
   },
   inactive_sections = {
