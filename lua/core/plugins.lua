@@ -139,7 +139,7 @@ return require('packer').startup(function(use)
     use "L3MON4D3/LuaSnip" --snippet engine
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
     use 'azr4e1/adwaita.nvim'                  -- adwaita theme
-    use { "kiyoon/jupynium.nvim", run = "conda run --no-capture-output -n jupynium pip install ." }
+    -- use { "kiyoon/jupynium.nvim", run = "conda run --no-capture-output -n jupynium pip install ." }
     use 'vim-scripts/dbext.vim'                -- SQL
     use 'nvim-lualine/lualine.nvim'            -- statusline
     use 'linty-org/key-menu.nvim'              -- mapping hints
