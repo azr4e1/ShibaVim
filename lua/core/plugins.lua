@@ -134,7 +134,7 @@ return require('packer').startup(function(use)
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-nvim-lua"
     use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/cmp-nvim-lsp-signature-help'
+    -- use 'hrsh7th/cmp-nvim-lsp-signature-help'
     use 'hrsh7th/cmp-omni'
     use "L3MON4D3/LuaSnip" --snippet engine
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
