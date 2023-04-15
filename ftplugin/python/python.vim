@@ -10,9 +10,6 @@ vnoremap <buffer><silent> <localleader>ph :<C-U>call Redir("!pydoc ".Get_visual_
 nnoremap <buffer><silent> <localleader>pp :call SendCmd('print('.expand("<cword>").')'."\n")<CR>
 vnoremap <buffer><silent> <localleader>pp :call SendCmd('print('.Get_visual_selection().')'."\n")<CR>
 
-command! Notebook !/home/ld/.miniconda3/bin/jupytext --update --to notebook %
-nnoremap <buffer><silent> <localleader>jn :Notebook<CR>
-
 nnoremap <silent><buffer> <C-down> :call NextChunk()<CR>
 nnoremap <silent><buffer> <C-up> :call PrevChunk()<CR>
 
