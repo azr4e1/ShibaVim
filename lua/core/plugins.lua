@@ -33,9 +33,10 @@ return require('packer').startup(function(use)
         run = ':TSUpdate'
     }
     -- Mason
-    use { "williamboman/mason.nvim" }
+    use "williamboman/mason.nvim"
     use "williamboman/mason-lspconfig.nvim"
-    use "jay-babu/mason-nvim-dap.nvim"
+    use {"jay-babu/mason-nvim-dap.nvim",
+        commit="b4af78dd862e465dfc00ce7a4c0dd811fafb09ed"}
     -- debugger
     use {
         'mfussenegger/nvim-dap',
@@ -139,7 +140,6 @@ return require('packer').startup(function(use)
     use "L3MON4D3/LuaSnip" --snippet engine
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
     use 'azr4e1/adwaita.nvim'                  -- adwaita theme
-    -- use { "kiyoon/jupynium.nvim", run = "conda run --no-capture-output -n jupynium pip install ." }
     use 'vim-scripts/dbext.vim'                -- SQL
     use 'nvim-lualine/lualine.nvim'            -- statusline
     use 'linty-org/key-menu.nvim'              -- mapping hints
