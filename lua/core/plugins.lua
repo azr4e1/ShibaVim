@@ -129,15 +129,16 @@ return require('packer').startup(function(use)
         end
     }
     -- Cmp
-    use "hrsh7th/nvim-cmp"  -- The completion plugin
-    use "hrsh7th/cmp-buffer" -- buffer completions
-    use "hrsh7th/cmp-path" -- path completions
-    use "saadparwaiz1/cmp_luasnip" -- snippet completions
-    use "hrsh7th/cmp-nvim-lsp"
-    use "hrsh7th/cmp-nvim-lua"
-    use 'hrsh7th/cmp-cmdline'
-    -- use 'hrsh7th/cmp-nvim-lsp-signature-help'
-    use 'hrsh7th/cmp-omni'
+    -- use "hrsh7th/nvim-cmp"  -- The completion plugin
+    -- use "hrsh7th/cmp-buffer" -- buffer completions
+    -- use "hrsh7th/cmp-path" -- path completions
+    -- use "saadparwaiz1/cmp_luasnip" -- snippet completions
+    -- use "hrsh7th/cmp-nvim-lsp"
+    -- use "hrsh7th/cmp-nvim-lua"
+    -- use 'hrsh7th/cmp-cmdline'
+    -- -- use 'hrsh7th/cmp-nvim-lsp-signature-help'
+    -- use 'hrsh7th/cmp-omni'
+    use { 'echasnovski/mini.completion', branch = 'stable' }
     use "L3MON4D3/LuaSnip" --snippet engine
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
     use 'azr4e1/adwaita.nvim'                  -- adwaita theme
