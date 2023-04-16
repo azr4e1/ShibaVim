@@ -61,7 +61,7 @@ local kind_icons = {
 cmp.setup {
     completion = {
         autocomplete = false,
-        completeopt='menuone'
+        completeopt='menu,menuone'
     },
     snippet = {
         expand = function(args)
@@ -126,11 +126,11 @@ cmp.setup {
         end,
     },
     sources = {
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "path" },
-        { name = "nvim_lua" },
+        { name = "nvim_lsp", priority = 1000 },
+        { name = "nvim_lua", priority = 1000 },
+        { name = "luasnip", priority = 750 },
+        { name = "buffer", priority = 500 },
+        { name = "path", priority = 250 },
         -- { name = 'nvim_lsp_signature_help' },
     },
     confirm_opts = {
