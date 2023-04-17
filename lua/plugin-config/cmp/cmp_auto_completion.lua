@@ -185,9 +185,9 @@ function M.setup()
 
     cmp.setup.filetype({'vimwiki'}, {
         sources = {
+            { name = 'omni' },
             { name = 'path' },
             { name = 'buffer' },
-            { name = 'omni' },
         }
     })
 end
