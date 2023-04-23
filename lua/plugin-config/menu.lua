@@ -25,6 +25,7 @@ local LspEntries = function()
         vim.cmd'inoremenu <silent> PopUp.Go\\ To\\ Definition <C-o>:lua vim.lsp.buf.definition()<CR>'
         vim.cmd'nnoremenu <silent> PopUp.Object\\ Information :lua vim.lsp.buf.hover()<CR>'
         vim.cmd'inoremenu <silent> PopUp.Object\\ Information <C-o>:lua vim.lsp.buf.hover()<CR>'
+        vim.cmd'nnoremenu <silent> PopUp.Rename\\ Object :lua vim.lsp.buf.rename()<CR>'
         vim.cmd'nnoremenu <silent> PopUp.-4- <Nop>'
         vim.cmd'inoremenu <silent> PopUp.-4- <Nop>'
         vim.cmd'vnoremenu <silent> PopUp.-4- <Nop>'
