@@ -64,7 +64,7 @@ function M.setup()
     cmp.setup {
         completion = {
             autocomplete = false,
-            completeopt='menu'
+            completeopt='menu,menuone'
         },
         snippet = {
             expand = function(args)
