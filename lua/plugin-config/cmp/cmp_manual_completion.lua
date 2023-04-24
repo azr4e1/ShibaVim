@@ -1,62 +1,9 @@
 local cmp = require'cmp'
 local luasnip = require'luasnip'
+local u = require'plugin-config.cmp.utils'
+local ui = require'plugin-config.cmp.ui'
+
 require("luasnip.loaders.from_vscode").lazy_load()
-
-local check_backspace = function()
-    local col = vim.fn.col "." - 1
-    return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-end
-
-local abort = function()
-    cmp.abort()
-    cmp.core:reset()
-end
-
-local abort_or_close = function()
-    if cmp.visible() then
-        abort()
-    else
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-c>', true, true, true), 'n', true)
-    end
-end
-
-local cmdline_cr = function()
-    if cmp.visible() then
-        cmp.confirm({select=false})
-    else
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, true, true), 'n', true)
-    end
-end
-
---   פּ ﯟ   some other good icons
-local kind_icons = {
-    Text = "",
-    Method = "m",
-    Function = "",
-    Constructor = "",
-    Field = "",
-    Variable = "",
-    Class = "",
-    Interface = "",
-    Module = "",
-    Property = "",
-    Unit = "",
-    Value = "",
-    Enum = "",
-    Keyword = "",
-    Snippet = "",
-    Color = "",
-    File = "",
-    Reference = "",
-    Folder = "",
-    EnumMember = "",
-    Constant = "",
-    Struct = "",
-    Event = "",
-    Operator = "",
-    TypeParameter = "",
-}
--- find more here: https://www.nerdfonts.com/cheat-sheet
 
 local M = {}
 
@@ -76,13 +23,13 @@ function M.setup()
             ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
             ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
             ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-            ["<ESC>"] = cmp.mapping(abort_or_close, {"i", "c"}),
+            ["<ESC>"] = cmp.mapping(u.abort_or_close, {"i", "c"}),
             -- Accept currently selected item. If none selected, `select` first item.
             -- Set `select` to `false` to only confirm explicitly selected items.
             -- ["<CR>"] = cmp.mapping.confirm { select = false },
             ["<CR>"] = cmp.mapping {
                 i = cmp.mapping.confirm { select = false },
-                c = cmdline_cr
+                c = u.cmdline_cr
             },
             ["<Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
@@ -91,7 +38,7 @@ function M.setup()
                     luasnip.expand()
                 elseif luasnip.expand_or_jumpable() then
                     luasnip.expand_or_jump()
-                elseif not check_backspace() then
+                elseif not u.check_backspace() then
                     cmp.complete()
                 else
                     fallback()
@@ -113,21 +60,7 @@ function M.setup()
                 "s",
             }),
         },
-        formatting = {
-            fields = { "kind", "abbr", "menu" },
-            format = function(entry, vim_item)
-                -- Kind icons
-                vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-                vim_item.menu = ({
-                    nvim_lsp = "[LSP]",
-                    luasnip = "[Snippet]",
-                    buffer = "[Buffer]",
-                    path = "[Path]",
-                    omni = "[Omni]"
-                })[entry.source.name]
-                return vim_item
-            end,
-        },
+        formatting = ui.formatting(),
         sources = {
             { name = "nvim_lsp" },
             { name = "nvim_lua" },
@@ -135,15 +68,7 @@ function M.setup()
             { name = "buffer" },
             { name = "path" },
         },
-        confirm_opts = {
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = false,
-        },
-        window = {
-            documentation = {
-                border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-            },
-        },
+    window = ui.window(),
         experimental = {
             ghost_text = true,
             native_menu = false,

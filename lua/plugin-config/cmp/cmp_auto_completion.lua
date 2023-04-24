@@ -1,42 +1,8 @@
 local cmp = require'cmp'
-local compare = cmp.config.compare
 local luasnip = require'luasnip'
+local u = require'plugin-config.cmp.utils'
+local ui = require'plugin-config.cmp.ui'
 require("luasnip.loaders.from_vscode").lazy_load()
-
-local check_backspace = function()
-    local col = vim.fn.col "." - 1
-    return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-end
-
---   פּ ﯟ   some other good icons
-local kind_icons = {
-    Text = "",
-    Method = "m",
-    Function = "",
-    Constructor = "",
-    Field = "",
-    Variable = "",
-    Class = "",
-    Interface = "",
-    Module = "",
-    Property = "",
-    Unit = "",
-    Value = "",
-    Enum = "",
-    Keyword = "",
-    Snippet = "",
-    Color = "",
-    File = "",
-    Reference = "",
-    Folder = "",
-    EnumMember = "",
-    Constant = "",
-    Struct = "",
-    Event = "",
-    Operator = "",
-    TypeParameter = "",
-}
--- find more here: https://www.nerdfonts.com/cheat-sheet
 
 local M = {}
 
@@ -92,7 +58,7 @@ function M.setup()
                     luasnip.expand()
                 elseif luasnip.expand_or_jumpable() then
                     luasnip.expand_or_jump()
-                elseif check_backspace() then
+                elseif u.check_backspace() then
                     fallback()
                 else
                     fallback()
@@ -114,22 +80,7 @@ function M.setup()
                 "s",
             }),
         },
-        formatting = {
-            fields = { "kind", "abbr", "menu" },
-            format = function(entry, vim_item)
-                -- Kind icons
-                vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-                -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-                vim_item.menu = ({
-                    nvim_lsp = "[LSP]",
-                    luasnip = "[Snippet]",
-                    buffer = "[Buffer]",
-                    path = "[Path]",
-                    omni = "[Omni]"
-                })[entry.source.name]
-                return vim_item
-            end,
-        },
+        formatting = ui.formatting(),
         sources = {
             { name = "nvim_lsp" },
             { name = "nvim_lua" },
@@ -141,11 +92,7 @@ function M.setup()
             behavior = cmp.ConfirmBehavior.Replace,
             select = false,
         },
-        window = {
-            documentation = {
-                border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-            },
-        },
+        window = ui.window(),
         experimental = {
             ghost_text = true,
             native_menu = false,
