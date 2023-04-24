@@ -2,7 +2,7 @@ local cmp = require'cmp'
 
 local M = {}
 
-M.border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" }
+M.border = {"┌", "─", "┐", "│", "┘", "─", "└",  "│" }
 
 --   פּ ﯟ   some other good icons
 M.kind_icons = {

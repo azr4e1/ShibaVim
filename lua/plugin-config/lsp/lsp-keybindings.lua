@@ -1,7 +1,7 @@
 local nvim_lsp = require('lspconfig')
 local mason_lsp = require('mason-lspconfig')
 
-local border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" }
+local border = {"┌", "─", "┐", "│", "┘", "─", "└",  "│" }
 --
 -- LSP settings (for overriding per client) to change border of window
 local handlers =  {

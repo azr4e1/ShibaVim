@@ -1,6 +1,6 @@
 -- this toggles virtual text into floating
 -- window.
-local border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" }
+local border = {"┌", "─", "┐", "│", "┘", "─", "└",  "│" }
 
 vim.diagnostic.config {
     float = {
