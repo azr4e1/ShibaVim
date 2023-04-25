@@ -34,7 +34,12 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevelstart = 99
 vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait400-blinkoff600-blinkon900-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
+-- for cmdline height
 vim.opt.cmdheight = 0
+
+-- for which-key completion
+vim.o.timeout = true
+vim.o.timeoutlen = 300
 
 ---------------------------------------------
 -- Put all the user-defined variables here --

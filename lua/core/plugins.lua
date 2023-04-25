@@ -136,22 +136,15 @@ return require('packer').startup(function(use)
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-nvim-lua"
     use 'hrsh7th/cmp-cmdline'
-    -- use 'hrsh7th/cmp-nvim-lsp-signature-help'
     use 'hrsh7th/cmp-omni'
+
+
     use "L3MON4D3/LuaSnip" --snippet engine
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
     use 'azr4e1/adwaita.nvim'                  -- adwaita theme
     use 'vim-scripts/dbext.vim'                -- SQL
     use 'nvim-lualine/lualine.nvim'            -- statusline
-    -- use 'linty-org/key-menu.nvim'              -- mapping hints
-    use {
-        "folke/which-key.nvim",
-        config = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-            require("which-key").setup()
-        end
-    }
+    use {"folke/which-key.nvim"}
     use {'vimwiki/vimwiki'}
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
