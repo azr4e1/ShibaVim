@@ -39,7 +39,7 @@ vim.opt.cmdheight = 0
 
 -- for which-key completion
 vim.o.timeout = true
-vim.o.timeoutlen = 300
+vim.o.timeoutlen = 900
 
 ---------------------------------------------
 -- Put all the user-defined variables here --
