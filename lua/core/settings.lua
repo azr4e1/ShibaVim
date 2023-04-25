@@ -36,6 +36,7 @@ vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait400
 
 -- for cmdline height
 vim.opt.cmdheight = 0
+vim.opt.shortmess = 'filnxtToOFs'
 
 -- for which-key completion
 vim.o.timeout = true
