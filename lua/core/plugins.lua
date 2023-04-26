@@ -77,7 +77,7 @@ return require('packer').startup(function(use)
         event = 'BufReadPre',
         cmd = "Gitsigns",
         config = function()
-            require'gitsigns'.setup()
+            require'plugin-config.git-signs'.setup()
         end
     }
     -- indentation guides
