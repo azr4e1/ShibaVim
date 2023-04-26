@@ -53,6 +53,15 @@ local function FileName()
     return statusline
 end
 
+local function ShowMacroRecording()
+    local recording_register = vim.fn.reg_recording()
+    if recording_register == "" then
+        return ""
+    else
+        return " recording @" .. recording_register
+    end
+end
+
 local terminal = { sections = { lualine_a = {FileName} }, inactive_sections = {lualine_a = {FileName}}, filetypes = {'terminal'} }
 require('lualine').setup {
   options = {
@@ -89,7 +98,8 @@ require('lualine').setup {
             if str ~= '' then
                 str = ' '..str
             end
-            return str end}},
+            return str end},
+        ShowMacroRecording},
     lualine_z = {'location'}
   },
   inactive_sections = {
