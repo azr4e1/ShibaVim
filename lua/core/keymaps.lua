@@ -115,7 +115,7 @@ vim.api.nvim_set_keymap("n", "<leader>gp", ":Gitsigns prev_hunk<CR>", {silent=tr
 vim.api.nvim_set_keymap("n", "<leader>gn", ":Gitsigns next_hunk<CR>", {silent=true, noremap=true, desc="Jump to next hunk"})
 vim.api.nvim_set_keymap("n", "<leader>gs", ":Gitsigns stage_hunk<CR>", {silent=true, noremap=true, desc="Stage current hunk"})
 vim.api.nvim_set_keymap("n", "<leader>gu", ":Gitsigns undo_stage_hunk<CR>", {silent=true, noremap=true, desc="Undo last staging"})
-vim.api.nvim_set_keymap("n", "<leader>gb", ":Gitsigns stage_buffer<CR>", {silent=true, noremap=true, desc="Stage all hunks in buffer"})
+vim.api.nvim_set_keymap("n", "<leader>gB", ":Gitsigns stage_buffer<CR>", {silent=true, noremap=true, desc="Stage all hunks in buffer"})
 vim.api.nvim_set_keymap("n", "<leader>gr", ":Gitsigns reset_hunk<CR>", {silent=true, noremap=true, desc="Reset current hunk"})
 vim.api.nvim_set_keymap("n", "<leader>ws", ":lua require'plugins.wiki-picker'.wiki_picker()<CR>", {silent=true, noremap=true, desc="Jump to a Wiki"})
 vim.api.nvim_set_keymap("n", "<leader>wN", ":lua require'plugins.wiki-create'.create_wiki()<CR>", {silent=true, noremap=true, desc="Create a Wiki"})
