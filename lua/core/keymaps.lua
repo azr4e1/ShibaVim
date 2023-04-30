@@ -51,7 +51,7 @@ vim.api.nvim_set_keymap("n", "<leader>lp", ":lprev<CR>", {silent=true, noremap=t
 vim.api.nvim_set_keymap("n", "<leader>lf", ":lfirst<CR>", {silent=true, noremap=true, desc="First in locallist"})
 vim.api.nvim_set_keymap("n", "<leader>ll", ":llast<CR>", {silent=true, noremap=true, desc="Last in locallist"})
 vim.api.nvim_set_keymap("n", "<leader>x", ":make %<CR>", {silent=true, noremap=true, desc="Compile current file"})
-vim.api.nvim_set_keymap("n", "<leader>cd", ':echom "Changing directory to ".expand("%:h")<CR>:cd %:h<CR>', {silent=true, noremap=true, desc="Change to current directory"})
+vim.api.nvim_set_keymap("n", "<leader>cd", ':tcd %:p:h<CR>:echom "Changed directory to ".expand("%:p:h")<CR>', {silent=true, noremap=true, desc="Change to current directory"})
 -- vim.api.nvim_set_keymap("i", "<ESC>", 'pumvisible() ? "\\<C-e>" : "\\<Esc>"', {expr=true, noremap=true})
 -- vim.api.nvim_set_keymap("c", "<ESC>", 'pumvisible() ? "\\<C-e>" : "\\<C-c>"', {expr=true, noremap=true})
 -- vim.api.nvim_set_keymap("i", "<CR>", 'pumvisible() ? "\\<C-y>" : "\\<CR>"', {expr=true, noremap=true})
