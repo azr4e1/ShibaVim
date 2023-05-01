@@ -25,7 +25,7 @@ function M.setup()
             ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
             ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
             ["<ESC>"] = cmp.mapping {
-                i = cmp.mapping.abort(),
+                i = u.esc_auto,
                 c = function()
                     if cmp.visible() then
                         cmp.abort()
@@ -39,7 +39,7 @@ function M.setup()
             -- ["<CR>"] = cmp.mapping.confirm { select = false },
             ["<CR>"] = cmp.mapping {
                 i = cmp.mapping.confirm { select = false },
-                c = u.cmdline_cr
+                c = u.cmdline_cr_auto()
             },
             ["<Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
