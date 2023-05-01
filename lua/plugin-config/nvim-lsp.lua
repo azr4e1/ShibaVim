@@ -1,8 +1,10 @@
 local M = {}
 
+local border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" }
+
 function M.setup()
     -- disable virtual text by default
-    vim.diagnostic.config({virtual_text = false, float = {border='rounded'}})
+    vim.diagnostic.config({virtual_text = false, float = {border=border}})
     -- require('lazy.config.lsp.lsp-completion-signs')
     require('plugin-config.lsp.lsp-diagnostic-signs')
     require('plugin-config.lsp.lsp-keybindings')
