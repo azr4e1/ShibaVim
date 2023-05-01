@@ -11,7 +11,7 @@ function M.setup()
     cmp.setup {
         completion = {
             autocomplete = false,
-            completeopt='menu,menuone'
+            completeopt='menu,menuone,noselect'
         },
         snippet = {
             expand = function(args)
@@ -40,6 +40,7 @@ function M.setup()
                     luasnip.expand_or_jump()
                 elseif not u.check_backspace() then
                     cmp.complete()
+                    cmp.select_next_item()
                 else
                     fallback()
                 end
