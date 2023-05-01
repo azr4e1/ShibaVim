@@ -39,17 +39,7 @@ function M.setup()
             -- ["<CR>"] = cmp.mapping.confirm { select = false },
             ["<CR>"] = cmp.mapping {
                 i = cmp.mapping.confirm { select = false },
-                c = function()
-                        if cmp.visible() then
-                            if cmp.get_active_entry() ~= nil then
-                                cmp.confirm({select=false})
-                            else
-                            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, true, true), 'n', true)
-                            end
-                        else
-                            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, true, true), 'n', true)
-                        end
-                    end
+                c = u.cmdline_cr
             },
             ["<Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
