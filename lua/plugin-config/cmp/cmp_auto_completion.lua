@@ -26,13 +26,7 @@ function M.setup()
             ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
             ["<ESC>"] = cmp.mapping {
                 i = u.esc_auto,
-                c = function()
-                    if cmp.visible() then
-                        cmp.abort()
-                    else
-                        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-c>', true, true, true), 'n', true)
-                    end
-                end
+                c = u.abort_or_close
             },
             -- Accept currently selected item. If none selected, `select` first item.
             -- Set `select` to `false` to only confirm explicitly selected items.
@@ -48,8 +42,8 @@ function M.setup()
                     luasnip.expand()
                 elseif luasnip.expand_or_jumpable() then
                     luasnip.expand_or_jump()
-                elseif u.check_backspace() then
-                    fallback()
+                elseif not u.check_backspace() then
+                    cmp.complete()
                 else
                     fallback()
                 end
