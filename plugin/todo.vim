@@ -54,6 +54,7 @@ function! TODO()
     let win = nvim_open_win(buf, 1, opts)
     call setwinvar(win, '&winhighlight', 'NormalFloat:Normal,FloatBorder:TODOBorder')
     call setwinvar(win, '&colorcolumn', '')
+    nnoremap <silent><buffer> q :wq<CR>
     setlocal nobuflisted
 
     " if TODO.txt is empty, intialize the file
