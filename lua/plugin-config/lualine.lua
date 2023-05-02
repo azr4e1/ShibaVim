@@ -63,11 +63,13 @@ local function ShowMacroRecording()
 end
 
 local terminal = { sections = { lualine_a = {FileName} }, inactive_sections = {lualine_a = {FileName}}, filetypes = {'terminal'} }
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
     theme = 'adwaita',
-    component_separators = { left = '', right = ''},
+    -- component_separators = { left = '', right = ''},
+    component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
         'dashboard',
@@ -85,9 +87,9 @@ require('lualine').setup {
     }
   },
   sections = {
-    lualine_a = {'mode', FileName},
-    lualine_b = {Branch, 'diff', 'diagnostics'},
-    lualine_c = {},
+    lualine_a = {FileName},
+    lualine_b = {Branch, 'diff'},
+    lualine_c = {'diagnostics'},
     lualine_x = {TreeSitter, Spelling, 'filetype'},
     lualine_y = {'%P', {'searchcount', fmt=function(str)
         if str ~= '' then

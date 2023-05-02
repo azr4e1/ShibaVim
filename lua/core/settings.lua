@@ -40,7 +40,7 @@ vim.opt.shortmess = 'filnxtToOFs'
 
 -- for which-key completion
 vim.o.timeout = true
-vim.o.timeoutlen = 900
+vim.o.timeoutlen = 500
 
 ---------------------------------------------
 -- Put all the user-defined variables here --

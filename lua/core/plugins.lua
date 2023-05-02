@@ -26,16 +26,21 @@ vim.cmd([[
 ------------------------------
 return require('packer').startup(function(use)
     -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+    use {'wbthomason/packer.nvim',
+         lock=true}
     -- treesitter
     use {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
+        run = ':TSUpdate',
+        lock=true
     }
-    use 'nvim-treesitter/playground'
+    use {'nvim-treesitter/playground',
+        lock=true}
     -- Mason
-    use "williamboman/mason.nvim"
-    use "williamboman/mason-lspconfig.nvim"
+    use {"williamboman/mason.nvim",
+        lock=true}
+    use {"williamboman/mason-lspconfig.nvim",
+        lock=true}
     use {"jay-babu/mason-nvim-dap.nvim",
         commit="b4af78dd862e465dfc00ce7a4c0dd811fafb09ed"}
     -- debugger
@@ -52,25 +57,30 @@ return require('packer').startup(function(use)
         },
         config = function()
             require'lazy.dap'.setup()
-        end
+        end,
+        lock=true
     }
     -- project sidebar
-    use 'nvim-tree/nvim-web-devicons'
+    use {'nvim-tree/nvim-web-devicons',
+         lock=true}
     use {'nvim-tree/nvim-tree.lua',
         opt = true,
         cmd = 'NvimTreeToggle',
         config = function()
             require'nvim-tree'.setup()
-        end
+        end,
+        lock=true
     }
     -- LSP
-    use {'neovim/nvim-lspconfig'}
+    use {'neovim/nvim-lspconfig',
+         lock=true}
     -- focus window
     use {'folke/zen-mode.nvim',
         cmd = 'ZenMode',
         config = function()
             require'plugin-config.zen-mode'.setup()
-        end
+        end,
+        lock=true
     }
     -- git signs
     use {'lewis6991/gitsigns.nvim',
@@ -78,14 +88,16 @@ return require('packer').startup(function(use)
         cmd = "Gitsigns",
         config = function()
             require'plugin-config.git-signs'.setup()
-        end
+        end,
+        lock=true
     }
     -- indentation guides
     use {'lukas-reineke/indent-blankline.nvim',
         after = 'nvim-treesitter',
         config = function()
             require('plugin-config.indent-blankline').setup()
-        end
+        end,
+        lock=true
     }
     -- color visualizer
     use {'norcalli/nvim-colorizer.lua',
@@ -96,56 +108,63 @@ return require('packer').startup(function(use)
                'ColorizerToggle'},
         config = function()
             require 'lazy.nvim-colorizer'.setup()
-        end
+        end,
+        lock=true
     }
     use {
         'numToStr/Comment.nvim',
         config = function()
             require('Comment').setup()
-        end
+        end,
+        lock=true
     }
-    use {"windwp/nvim-autopairs"}
+    use {"windwp/nvim-autopairs",
+         lock=true}
     use {
         "kylechui/nvim-surround",
         tag = "*", -- Use for stability; omit to use `main` branch for the latest features
         config = function()
             require("nvim-surround").setup()
-        end
+        end,
+        lock=true
     }
     use {'goolord/alpha-nvim',
          config = function ()
              require'plugin-config.alpha'.setup()
-         end
+         end,
+         lock=true
     }
     use {'nvim-telescope/telescope.nvim', tag = '0.1.0',
         requires = {'nvim-lua/plenary.nvim'},
+        lock=true
     }
     use {'chrisbra/csv.vim',                   -- CSV
-        ft = {'csv'}
+        ft = {'csv'},
+        lock=true
     }
     use {'azr4e1/luatab.nvim',
         config = function()
             require'luatab'.setup()
-        end
+        end,
     }
     -- Cmp
-    use "hrsh7th/nvim-cmp"  -- The completion plugin
-    use "hrsh7th/cmp-buffer" -- buffer completions
-    use "hrsh7th/cmp-path" -- path completions
-    use "saadparwaiz1/cmp_luasnip" -- snippet completions
-    use "hrsh7th/cmp-nvim-lsp"
-    use "hrsh7th/cmp-nvim-lua"
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/cmp-omni'
+    use {"hrsh7th/nvim-cmp", lock=true}  -- The completion plugin
+    use {"hrsh7th/cmp-buffer", lock=true} -- buffer completions
+    use {"hrsh7th/cmp-path", lock=true} -- path completions
+    use {"saadparwaiz1/cmp_luasnip", lock=true} -- snippet completions
+    use {"hrsh7th/cmp-nvim-lsp", lock=true}
+    use {"hrsh7th/cmp-nvim-lua", lock=true}
+    use {'hrsh7th/cmp-cmdline', lock=true}
+    use {'hrsh7th/cmp-omni', lock=true}
 
 
-    use "L3MON4D3/LuaSnip" --snippet engine
-    use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-    use 'azr4e1/adwaita.nvim'                  -- adwaita theme
-    use 'vim-scripts/dbext.vim'                -- SQL
-    use 'nvim-lualine/lualine.nvim'            -- statusline
-    use {"folke/which-key.nvim"}
-    use {'vimwiki/vimwiki'}
+    use {"L3MON4D3/LuaSnip", lock=true} --snippet engine
+    use {"rafamadriz/friendly-snippets", lock=true} -- a bunch of snippets to use
+    use {'azr4e1/adwaita.nvim'}                  -- adwaita theme
+    use {'vim-scripts/dbext.vim', lock=true}                -- SQL
+    use {'nvim-lualine/lualine.nvim', lock=true}            -- statusline
+    use {"folke/which-key.nvim", lock=true}
+    use {'vimwiki/vimwiki', lock=true}
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then

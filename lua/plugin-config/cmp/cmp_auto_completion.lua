@@ -25,31 +25,15 @@ function M.setup()
             ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
             ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
             ["<ESC>"] = cmp.mapping {
-                i = cmp.mapping.abort(),
-                c = function()
-                    if cmp.visible() then
-                        cmp.abort()
-                    else
-                        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-c>', true, true, true), 'n', true)
-                    end
-                end
+                i = u.esc_auto,
+                c = u.abort_or_close
             },
             -- Accept currently selected item. If none selected, `select` first item.
             -- Set `select` to `false` to only confirm explicitly selected items.
             -- ["<CR>"] = cmp.mapping.confirm { select = false },
             ["<CR>"] = cmp.mapping {
                 i = cmp.mapping.confirm { select = false },
-                c = function()
-                        if cmp.visible() then
-                            if cmp.get_active_entry() ~= nil then
-                                cmp.confirm({select=false})
-                            else
-                            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, true, true), 'n', true)
-                            end
-                        else
-                            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, true, true), 'n', true)
-                        end
-                    end
+                c = u.cmdline_cr_auto()
             },
             ["<Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
@@ -58,8 +42,8 @@ function M.setup()
                     luasnip.expand()
                 elseif luasnip.expand_or_jumpable() then
                     luasnip.expand_or_jump()
-                elseif u.check_backspace() then
-                    fallback()
+                elseif not u.check_backspace() then
+                    cmp.complete()
                 else
                     fallback()
                 end

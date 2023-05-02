@@ -28,4 +28,24 @@ M.cmdline_cr = function()
     end
 end
 
+M.cmdline_cr_auto = function()
+    if cmp.visible() then
+        if cmp.get_active_entry() ~= nil then
+            cmp.confirm({select=false})
+        else
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, true, true), 'n', true)
+        end
+    else
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, true, true), 'n', true)
+    end
+end
+
+M.esc_auto = function()
+    if cmp.get_active_entry() ~= nil then
+        cmp.abort()
+    else
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-c>', true, true, true), 'n', true)
+    end
+end
+
 return M
