@@ -18,7 +18,7 @@ function! s:Set_options()
 endfunction
 
 function! s:CreateTODO()
-    let l:header = "# TODO list for project directory '".expand("%:p:h:t")."'\n\n* [ ] "
+    let l:header = "# TODO list for project directory '".getcwd()."'\n\n* [ ] "
     put! = l:header
     " Go to the end of file
     normal! Gk$
@@ -41,7 +41,7 @@ function! TODO()
     " a new file in the current directory (that is
     " the directory of the current buffer) if it doesn't
     " exist yet
-    let name = expand("%:p:h")."/TODO.md"
+    let name = getcwd()."/TODO.md"
     execute "badd ".name
     let buf = bufnr(name)
     " this variable is buffer-specific; if it is set,
