@@ -1,6 +1,6 @@
 local M = {}
 
-local border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" }
+local border = {"┌", "─", "┐", "│", "┘", "─", "└",  "│" }
 
 function M.setup()
     -- disable virtual text by default
