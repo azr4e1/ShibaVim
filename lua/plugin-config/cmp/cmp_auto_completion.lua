@@ -24,6 +24,7 @@ function M.setup()
             ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
             ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
             ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+            ["<C-z>"] = cmp.mapping(cmp.mapping.abort(), {'i'}),
             ["<ESC>"] = cmp.mapping {
                 i = u.esc_auto,
                 c = u.abort_or_close
