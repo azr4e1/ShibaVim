@@ -12,21 +12,21 @@ endif
 "setlocal keywordprg=Rdoc
 setlocal nowrap
 " only with Nvim-R
-let R_rconsole_width = 54
-let R_min_editor_width = 18
-let R_objbr_place = 'script,below'
-let R_rmdchunk = '``'
-let R_openpdf = 1
-let R_pdfviewer = "evince"
-nmap <buffer><silent> <C-up> <Plug>RPreviousRChunk
-nmap <buffer><silent> <C-down> <Plug>RNextRChunk
-nmap <buffer><silent> <localleader>sr <Plug>RSaveClose
+" let R_rconsole_width = 54
+" let R_min_editor_width = 18
+" let R_objbr_place = 'script,below'
+" let R_rmdchunk = '``'
+" let R_openpdf = 1
+" let R_pdfviewer = "evince"
+" nmap <buffer><silent> <C-up> <Plug>RPreviousRChunk
+" nmap <buffer><silent> <C-down> <Plug>RNextRChunk
+" nmap <buffer><silent> <localleader>sr <Plug>RSaveClose
 
 " for python integration
 inoremap <buffer><silent> `p ```{python}<CR>```<up><ESC>f}i
-nmap <buffer><silent> <localleader>sr <Plug>RSaveClose
-nmap <buffer><silent> <leader><CR> <Plug>RDSendLine
-vmap <buffer><silent> <leader><CR> <Plug>RDSendSelection
+" nmap <buffer><silent> <localleader>sr <Plug>RSaveClose
+" nmap <buffer><silent> <leader><CR> <Plug>RDSendLine
+" vmap <buffer><silent> <leader><CR> <Plug>RDSendSelection
 " for GUI instance
 if exists(':GuiFont')
     vmap <buffer><silent> <C-ENTER> <Plug>RDSendSelection
