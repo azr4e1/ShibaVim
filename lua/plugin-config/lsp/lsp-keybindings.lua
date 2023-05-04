@@ -65,14 +65,6 @@ local configure_lsp = {
     handlers = handlers
 }
 
-local configure_lsp_R = {
-    on_attach = mappings,
-    flags = {
-        debounce_text_changes = 150,
-    },
-    handlers = handlers
-}
-
 mason_lsp.setup_handlers {
     function (server_name)
         nvim_lsp[server_name].setup(configure_lsp)
