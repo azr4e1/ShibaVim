@@ -11,8 +11,12 @@ setlocal nowrap
 " nmap <buffer><silent> <leader><CR> <Plug>RDSendLine
 " vmap <buffer><silent> <leader><CR> <Plug>RDSendSelection
 " let R_assign_map = '<M-->'
-execute "inoremap <buffer><silent> <M--> <ESC>a -> "
+execute "inoremap <buffer><silent> <M--> <ESC>a <- "
 execute "inoremap <buffer><silent> <M-.> <ESC>a %>% "
+nnoremap <buffer><silent> <localleader>pp :call SendCmd('print('.expand("<cword>").')'."\n")<CR>
+vnoremap <buffer><silent> <localleader>pp :call SendCmd('print('.Get_visual_selection().')'."\n")<CR>
+nnoremap <silent><buffer> <C-down> :call NextChunk()<CR>
+nnoremap <silent><buffer> <C-up> :call PrevChunk()<CR>
 " let Rout_more_colors = 1
 
 " for GUI instance
