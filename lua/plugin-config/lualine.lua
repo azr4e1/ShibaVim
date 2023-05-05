@@ -91,17 +91,19 @@ require('lualine').setup {
     lualine_b = {Branch, 'diff'},
     lualine_c = {'diagnostics'},
     lualine_x = {TreeSitter, Spelling, 'filetype'},
-    lualine_y = {'%P', {'searchcount', fmt=function(str)
-        if str ~= '' then
-            str = '󰍉 '..str:gsub('%[', ''):gsub('%]', '')
-        end
-        return str end},
-        {'selectioncount', fmt=function(str)
-            if str ~= '' then
-                str = ' '..str
-            end
-            return str end},
-        ShowMacroRecording},
+    lualine_y = {'%P',
+        -- {'searchcount', fmt=function(str)
+        -- if str ~= '' then
+        --     str = '󰍉 '..str:gsub('%[', ''):gsub('%]', '')
+        -- end
+        -- return str end},
+        -- {'selectioncount', fmt=function(str)
+        --     if str ~= '' then
+        --         str = ' '..str
+        --     end
+        --     return str end},
+        -- ShowMacroRecording
+    },
     lualine_z = {'location'}
   },
   inactive_sections = {

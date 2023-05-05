@@ -22,7 +22,7 @@ vim.opt.tgc = true
 vim.opt.undofile = true
 vim.opt.undodir = HOME .. "/.local/share/nvim/undo"
 vim.opt.undolevels = 10000
-vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.completeopt = "menu,menuone"
 vim.opt.grepprg = "grep -nP $* /dev/null"
 vim.opt.makeprg = "autocompile $*"
 vim.opt.updatetime = 250
@@ -35,8 +35,8 @@ vim.opt.foldlevelstart = 99
 vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait400-blinkoff600-blinkon900-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
 -- for cmdline height
-vim.opt.cmdheight = 0
-vim.opt.shortmess = 'filnxtToOFs'
+-- vim.opt.cmdheight = 0
+-- vim.opt.shortmess = 'filnxtToOFs'
 
 -- for which-key completion
 vim.o.timeout = true
