@@ -18,16 +18,8 @@ local error_hlgroup = 'ErrorMsg'
 -- the second line to it.
 local short_line_limit = 20
 
--- Shows the current line's diagnostics in a floating window.
-function show_line_diagnostics()
-  vim
-    .lsp
-    .diagnostic
-    .show_line_diagnostics({ severity_limit = 'Warning' }, vim.fn.bufnr(''))
-end
-
 -- Prints the first diagnostic for the current line.
-function echo_diagnostic()
+function Echo_diagnostic()
   if echo_timer then
     echo_timer:stop()
   end
@@ -44,7 +36,7 @@ function echo_diagnostic()
       local diags = vim
         .lsp
         .diagnostic
-        .get_line_diagnostics(bufnf, line, { severity_limit = 'Warning' })
+        .get_line_diagnostics(bufnr, line, { severity_limit = 'Warning' })
 
       if #diags == 0 then
         -- If we previously echo'd a message, clear it out by echoing an empty
@@ -64,7 +56,6 @@ function echo_diagnostic()
       local width = vim.api.nvim_get_option('columns') - 15
       local lines = vim.split(diag.message, "\n")
       local message = lines[1]
-      local trimmed = false
 
       if #lines > 1 and #message <= short_line_limit then
         message = message .. ' ' .. lines[2]
@@ -93,5 +84,5 @@ function echo_diagnostic()
   )
 end
 
-vim.cmd[[autocmd CursorMoved * :lua echo_diagnostic()]]
+vim.cmd[[autocmd CursorMoved * :lua Echo_diagnostic()]]
 

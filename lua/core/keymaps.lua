@@ -32,7 +32,7 @@ vim.api.nvim_set_keymap("n", "<Up>", ":resize +2<CR>", {silent=true, noremap=tru
 vim.api.nvim_set_keymap("n", "<Down>", ":resize -2<CR>", {silent=true, noremap=true})
 vim.api.nvim_set_keymap("n", "<Right>", ":vertical resize +2<CR>", {silent=true, noremap=true})
 vim.api.nvim_set_keymap("n", "<Left>", ":vertical resize -2<CR>", {silent=true, noremap=true})
-vim.api.nvim_set_keymap("n", "<ESC>", "<ESC>:nohlsearch<CR>", {silent=true, noremap=true})
+vim.api.nvim_set_keymap("n", "<ESC>", "<ESC>:nohlsearch<CR>:echo ''<CR>", {silent=true, noremap=true})
 vim.api.nvim_set_keymap("v", "<", "<gv", {silent=true, noremap=true, desc="Hold on to visual mode when indenting"})
 vim.api.nvim_set_keymap("v", ">", ">gv", {silent=true, noremap=true, desc="Hold on to visual mode when indenting"})
 vim.api.nvim_set_keymap("n", "<leader>wd", ":%s#\\v\\s+$##g<CR>:nohlsearch<CR>", {silent=true, noremap=true, desc="Delete trailing whitespaces"})
