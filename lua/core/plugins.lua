@@ -148,14 +148,15 @@ return require('packer').startup(function(use)
         end,
     }
     -- Cmp
-    use {"hrsh7th/nvim-cmp", lock=false}  -- The completion plugin
-    use {"hrsh7th/cmp-buffer", lock=false} -- buffer completions
-    use {"hrsh7th/cmp-path", lock=false} -- path completions
-    use {"saadparwaiz1/cmp_luasnip", lock=false} -- snippet completions
-    use {"hrsh7th/cmp-nvim-lsp", lock=false}
-    use {"hrsh7th/cmp-nvim-lua", lock=false}
-    use {'hrsh7th/cmp-cmdline', lock=false}
-    use {'hrsh7th/cmp-omni', lock=false}
+    -- use {"hrsh7th/nvim-cmp", lock=false}  -- The completion plugin
+    -- use {"hrsh7th/cmp-buffer", lock=false} -- buffer completions
+    -- use {"hrsh7th/cmp-path", lock=false} -- path completions
+    -- use {"saadparwaiz1/cmp_luasnip", lock=false} -- snippet completions
+    -- use {"hrsh7th/cmp-nvim-lsp", lock=false}
+    -- use {"hrsh7th/cmp-nvim-lua", lock=false}
+    -- use {'hrsh7th/cmp-cmdline', lock=false}
+    -- use {'hrsh7th/cmp-omni', lock=false}
+    use 'echasnovski/mini.completion'
 
 
     use {"L3MON4D3/LuaSnip", lock=false} --snippet engine
