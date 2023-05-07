@@ -57,7 +57,7 @@ function M.setup()
     vim.cmd'vnoremenu <silent> PopUp.-1- <Nop>'
     vim.cmd'nnoremenu <silent> PopUp.Toggle\\ Indentline :IndentBlanklineToggle!<CR>'
     vim.cmd'inoremenu <silent> PopUp.Toggle\\ Indentline <C-o>:IndentBlanklineToggle!<CR>'
-    ToggleAutoCompletion()
+    -- ToggleAutoCompletion()
     vim.cmd'nnoremenu <silent> PopUp.-2- <Nop>'
     vim.cmd'inoremenu <silent> PopUp.-2- <Nop>'
     vim.cmd'vnoremenu <silent> PopUp.-2- <Nop>'
