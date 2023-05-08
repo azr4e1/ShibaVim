@@ -13,7 +13,7 @@ function! s:Set_options()
                 \ 'col': (ui.width/2) - (width/2),
                 \ 'row': ((ui.height-4)/2) - (height/2),
                 \ 'style': 'minimal',
-                \ 'border': border,
+                \ 'border': 'rounded',
                 \ }
     return opts
 endfunction
@@ -53,8 +53,8 @@ function! TODO()
     hi TODOBorder guifg=grey40
     let opts = <SID>Set_options()
     let win = nvim_open_win(buf, 1, opts)
-    " call setwinvar(win, '&winhighlight', 'NormalFloat:Normal,FloatBorder:TODOBorder')
-    " call setwinvar(win, '&colorcolumn', '')
+    call setwinvar(win, '&winhighlight', 'NormalFloat:Normal,FloatBorder:TODOBorder')
+    call setwinvar(win, '&colorcolumn', '')
     nnoremap <silent><buffer> q :wq<CR>
     setlocal nobuflisted
 

@@ -15,7 +15,7 @@ function! s:Set_options()
                 \ 'col': (ui.width/2) - (width/2),
                 \ 'row': ((ui.height-4)/2) - (height/2),
                 \ 'style': 'minimal',
-                \ 'border': border,
+                \ 'border': 'rounded',
                 \ }
     return opts
 endfunction
@@ -35,8 +35,8 @@ function! s:NNNChooser_float()
     let win = nvim_open_win(buf, 1, opts)
     hi BrowserBorder guifg=grey40
     " set aesthetics
-    " call setwinvar(win, '&winhighlight', 'NormalFloat:Normal,FloatBorder:BrowserBorder')
-    " call setwinvar(win, '&colorcolumn', '')
+    call setwinvar(win, '&winhighlight', 'NormalFloat:Normal,FloatBorder:BrowserBorder')
+    call setwinvar(win, '&colorcolumn', '')
     setlocal nobuflisted
     let b:nnn = bufnr()
     let b:prev = l:prev
