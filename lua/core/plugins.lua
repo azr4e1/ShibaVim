@@ -41,25 +41,25 @@ return require('packer').startup(function(use)
         lock=false}
     use {"williamboman/mason-lspconfig.nvim",
         lock=false}
-    use {"jay-babu/mason-nvim-dap.nvim",
-        commit="b4af78dd862e465dfc00ce7a4c0dd811fafb09ed"}
+    -- use {"jay-babu/mason-nvim-dap.nvim",
+    --     commit="b4af78dd862e465dfc00ce7a4c0dd811fafb09ed"}
     -- debugger
-    use {
-        'mfussenegger/nvim-dap',
-        event = 'VimEnter',
-        opt = true,
-        module = "dap",
-        requires = {
-            {
-                'rcarriga/nvim-dap-ui',
-                module = "dapui",
-            }
-        },
-        config = function()
-            require'lazy.dap'.setup()
-        end,
-        lock=false
-    }
+    -- use {
+    --     'mfussenegger/nvim-dap',
+    --     event = 'VimEnter',
+    --     opt = true,
+    --     module = "dap",
+    --     requires = {
+    --         {
+    --             'rcarriga/nvim-dap-ui',
+    --             module = "dapui",
+    --         }
+    --     },
+    --     config = function()
+    --         require'lazy.dap'.setup()
+    --     end,
+    --     lock=false
+    -- }
     -- project sidebar
     use {'nvim-tree/nvim-web-devicons',
          lock=false}
