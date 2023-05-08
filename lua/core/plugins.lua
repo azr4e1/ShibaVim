@@ -159,8 +159,8 @@ return require('packer').startup(function(use)
     use 'echasnovski/mini.completion'
 
 
-    use {"L3MON4D3/LuaSnip", lock=false} --snippet engine
-    use {"rafamadriz/friendly-snippets", lock=false} -- a bunch of snippets to use
+    -- use {"L3MON4D3/LuaSnip", lock=false} --snippet engine
+    -- use {"rafamadriz/friendly-snippets", lock=false} -- a bunch of snippets to use
     use {'azr4e1/adwaita.nvim'}                  -- adwaita theme
     use {'vim-scripts/dbext.vim', lock=false}                -- SQL
     use {'nvim-lualine/lualine.nvim', lock=false}            -- statusline
