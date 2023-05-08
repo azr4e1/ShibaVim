@@ -5,7 +5,7 @@ require'mini.completion'.setup(
   -- Delay (debounce type, in ms) between certain Neovim event and action.
   -- This can be used to (virtually) disable certain automatic actions by
   -- setting very high delay time (like 10^7).
-  delay = { completion = 100, info = 100, signature = 50 },
+  delay = { completion = 100, info = 100, signature = 10^7 },
 
   -- Configuration for action windows:
   -- - `height` and `width` are maximum dimensions.
