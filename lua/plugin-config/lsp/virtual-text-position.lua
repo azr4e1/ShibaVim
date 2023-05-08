@@ -9,10 +9,16 @@ local echo_timer = nil
 local echo_timeout = 50
 
 -- The highlight group to use for warning messages.
-local warning_hlgroup = 'WarningMsg'
+local warning_hlgroup = 'DiagnosticSignWarn'
 
 -- The highlight group to use for error messages.
-local error_hlgroup = 'ErrorMsg'
+local error_hlgroup = 'DiagnosticSignError'
+
+-- The highlight group to use for error messages.
+local hint_hlgroup = 'DiagnosticSignHint'
+
+-- The highlight group to use for error messages.
+local info_hlgroup = 'DiagnosticSignInfo'
 
 -- If the first diagnostic line has fewer than this many characters, also add
 -- the second line to it.
@@ -36,7 +42,7 @@ function Echo_diagnostic()
       local diags = vim
         .lsp
         .diagnostic
-        .get_line_diagnostics(bufnr, line, { severity_limit = 'Warning' })
+        .get_line_diagnostics(bufnr, line, { severity_limit = 'Info' })
 
       if #diags == 0 then
         -- If we previously echo'd a message, clear it out by echoing an empty
@@ -71,6 +77,12 @@ function Echo_diagnostic()
       if diag.severity == vim.lsp.protocol.DiagnosticSeverity.Error then
         kind = 'error'
         hlgroup = error_hlgroup
+      elseif diag.severity == vim.lsp.protocol.DiagnosticSeverity.Hint then
+        kind = 'hint'
+        hlgroup = hint_hlgroup
+      elseif diag.severity == vim.lsp.protocol.DiagnosticSeverity.Info then
+        kind = 'info'
+        hlgroup = info_hlgroup
       end
 
       local chunks = {
