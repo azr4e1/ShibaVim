@@ -10,4 +10,4 @@
     * [ ] terminal
     * [ ] telescope
     * [ ] lsp
-
+* [ ] Create your own (auto)completion plugin by overloading TAB
