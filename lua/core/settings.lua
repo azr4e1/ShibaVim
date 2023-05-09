@@ -41,6 +41,7 @@ vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait400
 -- for which-key completion
 vim.o.timeout = true
 vim.o.timeoutlen = 500
+vim.o.signcolumn = 'auto:2'
 
 ---------------------------------------------
 -- Put all the user-defined variables here --
