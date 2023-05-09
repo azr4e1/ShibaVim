@@ -2,13 +2,6 @@
 -- window.
 local border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" }
 
-vim.diagnostic.config {
-    float = {
-      -- UI.
-        border = border,
-    }
-}
-
 vim.g.virtual_active = false
 function _G.toggle_diagnostics()
   if vim.g.virtual_active then
