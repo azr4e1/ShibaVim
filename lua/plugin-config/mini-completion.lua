@@ -1,5 +1,5 @@
 -- No need to copy this inside `setup()`. Will be used automatically.
-local border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" }
+local border = {"┌", "─", "┐", "│", "┘", "─", "└",  "│" }
 require'mini.completion'.setup(
 {
   -- Delay (debounce type, in ms) between certain Neovim event and action.
