@@ -152,7 +152,6 @@ return require('packer').startup(function(use)
             require'luatab'.setup()
         end,
     }
-    use 'echasnovski/mini.completion'
     use {'azr4e1/adwaita.nvim'}                  -- adwaita theme
     use {'vim-scripts/dbext.vim',
          ft = 'sql',
