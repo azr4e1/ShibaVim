@@ -7,6 +7,7 @@ function! s:Set_options()
     let width = float2nr(ui.width*0.7)
     let height = float2nr(ui.height*0.6)
     " Create the floating window
+    let border = ["🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏"]
     let opts = {'relative': 'editor',
                 \ 'width': width,
                 \ 'height': height,

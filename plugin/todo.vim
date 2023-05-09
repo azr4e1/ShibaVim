@@ -2,9 +2,10 @@ function! s:Set_options()
     " get the current UI settings
     let ui = nvim_list_uis()[0]
     " determine width and height
-    let width = float2nr(ui.width*0.6)
+    let width = float2nr(ui.width*0.7)
     let height = float2nr(ui.height*0.6)
     " Create the floating window
+    let border = ["🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏"]
     let opts = {'relative': 'editor',
                 \ 'width': width,
                 \ 'height': height,
@@ -54,7 +55,7 @@ function! TODO()
     let win = nvim_open_win(buf, 1, opts)
     call setwinvar(win, '&winhighlight', 'NormalFloat:Normal,FloatBorder:TODOBorder')
     call setwinvar(win, '&colorcolumn', '')
-    nnoremap <silent><buffer> q :wq<CR>
+    nnoremap <silent><buffer> q :wq<CR>:echo ""<CR>
     setlocal nobuflisted
 
     " if TODO.txt is empty, intialize the file

@@ -28,15 +28,16 @@ local mappings = function(client, bufnr)
     buf_set_keymap('v', '<C-h>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     buf_set_keymap('i', '<C-h>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    buf_set_keymap('n', '[w', '<cmd>lua vim.diagnostic.goto_prev({severity = vim.diagnostic.severity.WARN})<CR>', opts)
-    buf_set_keymap('n', ']w', '<cmd>lua vim.diagnostic.goto_next({severity = vim.diagnostic.severity.WARN})<CR>', opts)
-    buf_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev({severity = vim.diagnostic.severity.ERROR})<CR>', opts)
-    buf_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next({severity = vim.diagnostic.severity.ERROR})<CR>', opts)
-    buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-    buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+    buf_set_keymap('n', '[w', '<cmd>lua vim.diagnostic.goto_prev({float = false, severity = vim.diagnostic.severity.WARN})<CR>', opts)
+    buf_set_keymap('n', ']w', '<cmd>lua vim.diagnostic.goto_next({float = false, severity = vim.diagnostic.severity.WARN})<CR>', opts)
+    buf_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev({float = false, severity = vim.diagnostic.severity.ERROR})<CR>', opts)
+    buf_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next({float = false, severity = vim.diagnostic.severity.ERROR})<CR>', opts)
+    buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev({float = false})<CR>', opts)
+    buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next({float = false})<CR>', opts)
     buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     buf_set_keymap('n', '<leader>qd', '<cmd>lua vim.diagnostic.setqflist({severity = vim.diagnostic.severity.ERROR})<CR>', opts)
     buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    buf_set_keymap('n', '<leader>dd', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
     --buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
     --buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
     --buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
@@ -59,14 +60,6 @@ end
 
 local configure_lsp = {
     on_attach = on_attach,
-    flags = {
-        debounce_text_changes = 150,
-    },
-    handlers = handlers
-}
-
-local configure_lsp_R = {
-    on_attach = mappings,
     flags = {
         debounce_text_changes = 150,
     },

@@ -41,25 +41,25 @@ return require('packer').startup(function(use)
         lock=false}
     use {"williamboman/mason-lspconfig.nvim",
         lock=false}
-    use {"jay-babu/mason-nvim-dap.nvim",
-        commit="b4af78dd862e465dfc00ce7a4c0dd811fafb09ed"}
+    -- use {"jay-babu/mason-nvim-dap.nvim",
+    --     commit="b4af78dd862e465dfc00ce7a4c0dd811fafb09ed"}
     -- debugger
-    use {
-        'mfussenegger/nvim-dap',
-        event = 'VimEnter',
-        opt = true,
-        module = "dap",
-        requires = {
-            {
-                'rcarriga/nvim-dap-ui',
-                module = "dapui",
-            }
-        },
-        config = function()
-            require'lazy.dap'.setup()
-        end,
-        lock=false
-    }
+    -- use {
+    --     'mfussenegger/nvim-dap',
+    --     event = 'VimEnter',
+    --     opt = true,
+    --     module = "dap",
+    --     requires = {
+    --         {
+    --             'rcarriga/nvim-dap-ui',
+    --             module = "dapui",
+    --         }
+    --     },
+    --     config = function()
+    --         require'lazy.dap'.setup()
+    --     end,
+    --     lock=false
+    -- }
     -- project sidebar
     use {'nvim-tree/nvim-web-devicons',
          lock=false}
@@ -148,18 +148,19 @@ return require('packer').startup(function(use)
         end,
     }
     -- Cmp
-    use {"hrsh7th/nvim-cmp", lock=false}  -- The completion plugin
-    use {"hrsh7th/cmp-buffer", lock=false} -- buffer completions
-    use {"hrsh7th/cmp-path", lock=false} -- path completions
-    use {"saadparwaiz1/cmp_luasnip", lock=false} -- snippet completions
-    use {"hrsh7th/cmp-nvim-lsp", lock=false}
-    use {"hrsh7th/cmp-nvim-lua", lock=false}
-    use {'hrsh7th/cmp-cmdline', lock=false}
-    use {'hrsh7th/cmp-omni', lock=false}
+    -- use {"hrsh7th/nvim-cmp", lock=false}  -- The completion plugin
+    -- use {"hrsh7th/cmp-buffer", lock=false} -- buffer completions
+    -- use {"hrsh7th/cmp-path", lock=false} -- path completions
+    -- use {"saadparwaiz1/cmp_luasnip", lock=false} -- snippet completions
+    -- use {"hrsh7th/cmp-nvim-lsp", lock=false}
+    -- use {"hrsh7th/cmp-nvim-lua", lock=false}
+    -- use {'hrsh7th/cmp-cmdline', lock=false}
+    -- use {'hrsh7th/cmp-omni', lock=false}
+    use 'echasnovski/mini.completion'
 
 
-    use {"L3MON4D3/LuaSnip", lock=false} --snippet engine
-    use {"rafamadriz/friendly-snippets", lock=false} -- a bunch of snippets to use
+    -- use {"L3MON4D3/LuaSnip", lock=false} --snippet engine
+    -- use {"rafamadriz/friendly-snippets", lock=false} -- a bunch of snippets to use
     use {'azr4e1/adwaita.nvim'}                  -- adwaita theme
     use {'vim-scripts/dbext.vim', lock=false}                -- SQL
     use {'nvim-lualine/lualine.nvim', lock=false}            -- statusline
