@@ -1,5 +1,7 @@
 -- Treesitter settings
-require'nvim-treesitter.configs'.setup {
+local M = {}
+
+M.config = {
     -- One of "all", "maintained" (parsers with maintainers), or a list of languages
     ensure_installed = "all",
 
@@ -32,3 +34,9 @@ require'nvim-treesitter.configs'.setup {
         },
     },
 }
+
+M.setup = function()
+    require'nvim-treesitter.configs'.setup(M.config)
+end
+
+return M
