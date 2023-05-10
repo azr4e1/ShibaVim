@@ -15,7 +15,7 @@ require('lspconfig.ui.windows').default_options = {
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local mappings = function(client, bufnr)
+local mappings = function(_, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
     -- Mappings.
