@@ -12,10 +12,10 @@ end
 
 local LspEntries = function()
     if next(vim.lsp.buf_get_clients()) ~= nil then
-        vim.cmd'nnoremenu <silent> PopUp.Toggle\\ Virtual\\ Text :Virtual<CR>'
-        vim.cmd'inoremenu <silent> PopUp.Toggle\\ Virtual\\ Text <C-o>:Virtual<CR>'
-        vim.cmd'nnoremenu <silent> PopUp.Toggle\\ Diagnostics :Diagnostics<CR>'
-        vim.cmd'inoremenu <silent> PopUp.Toggle\\ Diagnostics <C-o>:Diagnostics<CR>'
+        -- vim.cmd'nnoremenu <silent> PopUp.Toggle\\ Virtual\\ Text :Virtual<CR>'
+        -- vim.cmd'inoremenu <silent> PopUp.Toggle\\ Virtual\\ Text <C-o>:Virtual<CR>'
+        -- vim.cmd'nnoremenu <silent> PopUp.Toggle\\ Diagnostics :Diagnostics<CR>'
+        -- vim.cmd'inoremenu <silent> PopUp.Toggle\\ Diagnostics <C-o>:Diagnostics<CR>'
         vim.cmd'nnoremenu <silent> PopUp.Code\\ Actions :lua vim.lsp.buf.code_action()<CR>'
         vim.cmd'vnoremenu <silent> PopUp.Code\\ Actions :lua vim.lsp.buf.code_action()<CR>'
         vim.cmd'inoremenu <silent> PopUp.Code\\ Actions <C-o>:lua vim.lsp.buf.code_action()<CR>'
