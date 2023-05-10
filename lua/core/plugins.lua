@@ -31,10 +31,15 @@ return require('packer').startup(function(use)
     -- treesitter
     use {
         'nvim-treesitter/nvim-treesitter',
+        event = 'VimEnter',
         run = ':TSUpdate',
-        lock=false
+        lock=false,
+        config = function()
+            require'lazy.treesitter'.setup()
+    end,
     }
     use {'nvim-treesitter/playground',
+        after = 'nvim-treesitter',
         lock=false}
     -- Mason
     use {"williamboman/mason.nvim",
@@ -147,25 +152,20 @@ return require('packer').startup(function(use)
             require'luatab'.setup()
         end,
     }
-    -- Cmp
-    -- use {"hrsh7th/nvim-cmp", lock=false}  -- The completion plugin
-    -- use {"hrsh7th/cmp-buffer", lock=false} -- buffer completions
-    -- use {"hrsh7th/cmp-path", lock=false} -- path completions
-    -- use {"saadparwaiz1/cmp_luasnip", lock=false} -- snippet completions
-    -- use {"hrsh7th/cmp-nvim-lsp", lock=false}
-    -- use {"hrsh7th/cmp-nvim-lua", lock=false}
-    -- use {'hrsh7th/cmp-cmdline', lock=false}
-    -- use {'hrsh7th/cmp-omni', lock=false}
-    use 'echasnovski/mini.completion'
-
-
-    -- use {"L3MON4D3/LuaSnip", lock=false} --snippet engine
-    -- use {"rafamadriz/friendly-snippets", lock=false} -- a bunch of snippets to use
     use {'azr4e1/adwaita.nvim'}                  -- adwaita theme
-    use {'vim-scripts/dbext.vim', lock=false}                -- SQL
+    use {'vim-scripts/dbext.vim',
+         ft = 'sql',
+         lock=false}                -- SQL
     use {'nvim-lualine/lualine.nvim', lock=false}            -- statusline
     use {"folke/which-key.nvim", lock=false}
     use {'vimwiki/vimwiki', lock=false}
+    use {'azr4e1/todo.vim',
+         -- opt = true,
+         cmd = 'TODO'}
+    use {'azr4e1/nnn.vim',
+         -- opt = true,
+         cmd = 'NNN'}
+    use {'azr4e1/terminal.nvim'}
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
