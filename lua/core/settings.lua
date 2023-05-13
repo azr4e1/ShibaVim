@@ -27,7 +27,6 @@ vim.opt.grepprg = "grep -nP $* /dev/null"
 vim.opt.makeprg = "autocompile $*"
 vim.opt.updatetime = 250
 vim.opt.mouse = "a"
-vim.opt.omnifunc = "syntaxcomplete#Complete"
 vim.opt.listchars = "eol:↴,lead:⋅,tab:<->"
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
