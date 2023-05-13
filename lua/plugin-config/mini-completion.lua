@@ -37,9 +37,11 @@ _G.tab_action = function()
     elseif _G.has_slash_before() then
       return keys['ctrl-x_f']
     elseif _G.has_words_before() then
-      return keys['ctrl-x_o']
-    -- elseif _G.has_words_before() then
-    --     return keys['ctrl-n']
+      if vim.opt.omnifunc['_value'] ~= "" then
+        return keys['ctrl-x_o']
+      else
+        return keys['ctrl-x_n']
+      end
     else
         return keys['tab']
     end
@@ -64,13 +66,11 @@ _G.esc_action = function()
       local item_selected = (selected_item ~= -1 and selected_item ~= nil)
       return (item_selected and keys['ctrl-e']) or keys['esc']
     else
-      -- If popup is not visible, use plain `<CR>`. You might want to customize
-      -- according to other plugins. For example, to use 'mini.pairs', replace
       return keys['esc']
     end
 end
 
 vim.api.nvim_set_keymap('i', '<CR>', 'v:lua._G.cr_action()', { noremap = true, expr = true })
 vim.api.nvim_set_keymap('i', '<ESC>', 'v:lua._G.esc_action()', { noremap = true, expr = true })
-vim.api.nvim_set_keymap('i', '<TAB>', '<C-R>=v:lua._G.tab_action()<CR>', { noremap = true, silent=true})
+vim.api.nvim_set_keymap('i', '<TAB>', 'v:lua._G.tab_action()', { noremap = true, expr = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { noremap = true, expr = true })
