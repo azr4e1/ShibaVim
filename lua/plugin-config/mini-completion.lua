@@ -11,12 +11,10 @@ end
 
 _G.has_slash_before = function()
     unpack = unpack or table.unpack
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    local _, col = unpack(vim.api.nvim_win_get_cursor(0))
+    local cword = vim.fn.expand('<cWORD>')
     return col ~= 0
-        and vim.api
-               .nvim_buf_get_lines(0, line-1, line, true)[1]
-               :match("/") ~= nil
-
+        and cword:match("/") ~= nil
 end
 
 local keys = {
@@ -25,7 +23,8 @@ local keys = {
     ['ctrl-y_cr']     = vim.api.nvim_replace_termcodes('<C-y><CR>', true, true, true),
     ['esc']	          = vim.api.nvim_replace_termcodes('<C-c>', true, true, true),
     ['ctrl-e']        = vim.api.nvim_replace_termcodes('<C-e>', true, true, true),
-    ['ctrl-n']         = vim.api.nvim_replace_termcodes('<C-n>', true, true, true),
+    ['ctrl-n']        = vim.api.nvim_replace_termcodes('<C-n>', true, true, true),
+    ['ctrl-x_n']      = vim.api.nvim_replace_termcodes('<C-x><C-n>', true, true, true),
     ['ctrl-x_f']      = vim.api.nvim_replace_termcodes('<C-x><C-f>', true, true, true),
     ['ctrl-x_o']      = vim.api.nvim_replace_termcodes('<C-x><C-o>', true, true, true),
     ['tab']           = vim.api.nvim_replace_termcodes('<TAB>', true, true, true)
@@ -45,14 +44,6 @@ _G.tab_action = function()
         return keys['tab']
     end
 end
-
-vim.api.nvim_set_keymap(
-	"i",
-	"<S-Tab>",
-	[[pumvisible() ? "\<C-p>" : "\<S-Tab>"]],
-	{ noremap = true, expr = true }
-)
-
 
 _G.cr_action = function()
     if vim.fn.pumvisible() ~= 0 then
@@ -81,4 +72,5 @@ end
 
 vim.api.nvim_set_keymap('i', '<CR>', 'v:lua._G.cr_action()', { noremap = true, expr = true })
 vim.api.nvim_set_keymap('i', '<ESC>', 'v:lua._G.esc_action()', { noremap = true, expr = true })
-vim.api.nvim_set_keymap('i', '<TAB>', 'v:lua._G.tab_action()', { noremap = true, expr = true })
+vim.api.nvim_set_keymap('i', '<TAB>', '<C-R>=v:lua._G.tab_action()<CR>', { noremap = true, silent=true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { noremap = true, expr = true })
