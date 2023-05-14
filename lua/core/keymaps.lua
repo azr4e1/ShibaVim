@@ -57,7 +57,7 @@ vim.api.nvim_set_keymap("c", "<ESC>", 'pumvisible() ? "\\<C-e>" : "\\<C-c>"', {e
 -- vim.api.nvim_set_keymap("i", "<CR>", 'pumvisible() ? "\\<C-y>" : "\\<CR>"', {expr=true, noremap=true})
 vim.api.nvim_set_keymap("c", "<CR>", 'pumvisible() ? "\\<C-y>" : "\\<CR>"', {expr=true, noremap=true})
 vim.api.nvim_create_user_command("Infos", [[echo "Informations about file "."'".expand("%:t")."'"."\nFile Type:\t".toupper(&filetype)."\nFile Encoding:\t".toupper(&fenc)."\nFile Format:\t".toupper(&ff)]], {nargs=0})
-vim.api.nvim_set_keymap("n", "tn", ":tabnew<CR>", {silent=true, noremap=true, desc="Open new tab"})
+vim.api.nvim_set_keymap("n", "<leader>tn", ":tabnew<CR>", {silent=true, noremap=true, desc="Open new tab"})
 vim.api.nvim_set_keymap("n", "<M-,>", "gT", {silent=true, noremap=true})
 vim.api.nvim_set_keymap("n", "<M-.>", "gt", {silent=true, noremap=true})
 vim.api.nvim_set_keymap("n", "-", "za", {silent=true, noremap=true, desc="Toggle folding"})
