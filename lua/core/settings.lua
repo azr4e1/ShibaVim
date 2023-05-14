@@ -53,7 +53,8 @@ vim.g.loaded_netrwPlugin = 1
 -----------------------------------------
 -- Put all the highlight settings here --
 -----------------------------------------
-vim.g.adwaita_transparent = true
-vim.api.nvim_command("colorscheme adwaita")
+local tokyo = require'tokyonight'
+tokyo.setup({transparent=true})
+vim.api.nvim_command("colorscheme tokyonight")
 vim.api.nvim_set_hl(0, 'Error', {fg="red"})
 vim.api.nvim_set_hl(0, 'ModeMsg', {bg=nil})

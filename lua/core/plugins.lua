@@ -152,7 +152,8 @@ return require('packer').startup(function(use)
             require'luatab'.setup()
         end,
     }
-    use {'azr4e1/adwaita.nvim'}                  -- adwaita theme
+    -- use {'azr4e1/adwaita.nvim'}                  -- adwaita theme
+    use {'folke/tokyonight.nvim'}
     use {'vim-scripts/dbext.vim',
          ft = 'sql',
          lock=false}                -- SQL
