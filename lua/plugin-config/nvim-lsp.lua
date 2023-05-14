@@ -4,7 +4,7 @@ local border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" }
 
 M.config = {
     virtual_text = false,
-    float = {border=border},
+    float = {border='rounded'},
     update_in_insert = true
 }
 
