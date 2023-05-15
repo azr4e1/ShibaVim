@@ -53,6 +53,8 @@ vim.g.loaded_netrwPlugin = 1
 -----------------------------------------
 -- Put all the highlight settings here --
 -----------------------------------------
+-- local dracula = require 'dracula'
+-- dracula.setup({transparent=true})
 local tokyo = require'tokyonight'
 tokyo.setup({transparent=true})
 vim.api.nvim_command("colorscheme tokyonight")
