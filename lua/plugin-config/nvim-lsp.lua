@@ -1,10 +1,8 @@
 local M = {}
 
-local border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" }
-
 M.config = {
     virtual_text = false,
-    float = {border='rounded'},
+    float = {border='solid'},
     update_in_insert = true
 }
 
