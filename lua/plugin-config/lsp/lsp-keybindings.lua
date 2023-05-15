@@ -1,12 +1,11 @@
 local nvim_lsp = require('lspconfig')
 local mason_lsp = require('mason-lspconfig')
 
-local border = {"┌", "─", "┐", "│", "┘", "─", "└",  "│" }
 --
 -- LSP settings (for overriding per client) to change border of window
 local handlers =  {
-    ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border}),
-    ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = border}),
+    ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = 'solid'}),
+    ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = 'solid'}),
 }
 
 require('lspconfig.ui.windows').default_options = {

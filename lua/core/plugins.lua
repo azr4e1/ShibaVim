@@ -153,6 +153,8 @@ return require('packer').startup(function(use)
         end,
     }
     use {'azr4e1/adwaita.nvim'}                  -- adwaita theme
+    use {'maxmx03/dracula.nvim'}
+    use {'folke/tokyonight.nvim'}
     use {'vim-scripts/dbext.vim',
          ft = 'sql',
          lock=false}                -- SQL

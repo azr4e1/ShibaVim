@@ -10,11 +10,19 @@ _G.has_words_before = function()
 end
 
 _G.has_slash_before = function()
-    unpack = unpack or table.unpack
-    local _, col = unpack(vim.api.nvim_win_get_cursor(0))
-    local cword = vim.fn.expand('<cWORD>')
+    local unpack = unpack or table.unpack
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
     return col ~= 0
-        and cword:match("/") ~= nil
+		and (vim.api
+				.nvim_buf_get_lines(0, line - 1, line, true)[1]
+				:sub(col, col)
+				:match("/")
+			~= nil
+		or vim.api
+				.nvim_buf_get_lines(0, line - 1, line, true)[1]
+                :sub(0, col+1)
+				:match(".*/%S+$")
+			~= nil)
 end
 
 local keys = {
