@@ -1,5 +1,3 @@
-local border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" }
-
 local M = {}
 
 function M.setup()
@@ -35,7 +33,7 @@ function M.setup()
       max_file_length = 40000, -- Disable if file is longer than this (in lines)
       preview_config = {
         -- Options passed to nvim_open_win
-        border = border,
+        border = 'solid',
         style = 'minimal',
         relative = 'cursor',
         row = 0,
