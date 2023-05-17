@@ -67,7 +67,7 @@ local terminal = { sections = { lualine_a = {FileName} }, inactive_sections = {l
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'tokyonight',
+    theme = 'adwaita',
     -- component_separators = { left = '', right = ''},
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
