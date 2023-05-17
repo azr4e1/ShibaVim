@@ -68,7 +68,7 @@ function Echo_diagnostic()
       end
 
       if width > 0 and #message >= width then
-        message = message:sub(1, width) .. '...'
+        message = message:sub(1, width-9) .. '...'
       end
 
       local kind = 'warning'
