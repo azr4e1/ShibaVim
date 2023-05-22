@@ -1,7 +1,4 @@
--- this toggles virtual text into floating
--- window.
-local border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" }
-
+-- this toggles virtual text
 vim.g.virtual_active = false
 function _G.toggle_diagnostics()
   if vim.g.virtual_active then
@@ -25,14 +22,5 @@ function _G.hide_diagnostics()
     end
 end
 
-
--- This will switch between virtual text and floating window diagnostic
-vim.cmd([[augroup LSP
-    autocmd!
-    autocmd CursorHold * lua if not vim.g.virtual_active and vim.g.diagnostic_visible then vim.diagnostic.open_float(0, {scope = "cursor", focusable = false}) end
-augroup END]])
-
-vim.cmd(':command! Diagnostics :call v:lua.hide_diagnostics()')
-vim.cmd(':command! Virtual :call v:lua.toggle_diagnostics()')
--- vim.api.nvim_set_keymap('n', '<leader>vt', ':call v:lua.toggle_diagnostics()<CR>',  {noremap = true, silent = true})
--- vim.api.nvim_set_keymap('n', '<leader>tt', ':call v:lua.hide_diagnostics()<CR>',  {noremap = true, silent = true})
+vim.cmd(':command! DiagnosticsToggle :call v:lua.hide_diagnostics()')
+vim.cmd(':command! VirtualDiagnosticsToggle :call v:lua.toggle_diagnostics()')
