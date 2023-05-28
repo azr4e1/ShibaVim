@@ -166,6 +166,7 @@ return require('packer').startup(function(use)
          -- opt = true,
          cmd = 'NNN'}
     use {'azr4e1/terminal.nvim'}
+    use {'nvim-telescope/telescope-ui-select.nvim' }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
