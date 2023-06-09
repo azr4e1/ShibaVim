@@ -119,4 +119,4 @@ vim.api.nvim_set_keymap("n", "<leader>gB", ":Gitsigns stage_buffer<CR>", {silent
 vim.api.nvim_set_keymap("n", "<leader>gr", ":Gitsigns reset_hunk<CR>", {silent=true, noremap=true, desc="Reset current hunk"})
 vim.api.nvim_set_keymap("n", "<leader>ws", ":lua require'plugins.wiki-picker'.wiki_picker()<CR>", {silent=true, noremap=true, desc="Jump to a Wiki"})
 vim.api.nvim_set_keymap("n", "<leader>wN", ":lua require'plugins.wiki-create'.create_wiki()<CR>", {silent=true, noremap=true, desc="Create a Wiki"})
-vim.api.nvim_set_keymap("n", "<leader>fW", ":Telescope find_files cwd=" .. HOME .. "/Documents/Wikis<CR>", {silent=true, noremap=true, desc="Telescope on Wikis"})
+vim.api.nvim_set_keymap("n", "<leader>fW", ":Telescope find_files cwd=" .. HOME .. "/Documents/Wikis/wiki<CR>", {silent=true, noremap=true, desc="Telescope on Wikis"})

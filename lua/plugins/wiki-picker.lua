@@ -10,7 +10,9 @@ M.previewer = require'telescope.previewers'
 M.home = os.getenv("HOME")
 
 M.config = {
-    projectsFolder = M.home .. "/Documents/Wikis", --full path without ~
+    projectsFolder = M.home .. "/Documents/Wikis/wiki", --full path without ~
+    htmlFolder = M.home .. "/Documents/Wikis/html", --full path without ~
+    templateFolder = M.home .. "/Documents/Wikis/templates", --full path without ~
     maxDepth = 3,
     ignoreFolders = { 'node_modules', '.git', 'mathjax', 'favicons', 'Datasets', 'templates', 'html', 'diary', 'images'},
     rootWikiFolder = '_wiki',
@@ -23,8 +25,8 @@ M.updateVimwikiList = function (folders)
     for _, f in ipairs(folders) do
         local item = {
             path = M.config.projectsFolder..'/'..f,
-            path_html = M.config.projectsFolder .. '/html/' .. f,
-            template_path = M.config.projectsFolder .. '/templates/',
+            path_html = M.config.htmlFolder .. '/' .. f,
+            template_path = M.config.templateFolder .. '/',
             template_ext = '.html',
             template_default = 'default',
             nested_syntaxes = {python = 'python', r = 'r'}
