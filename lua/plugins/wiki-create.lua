@@ -8,6 +8,7 @@ M.create_wiki = function()
     local name = vim.fn.input("Name of Wiki: ", "", "dir")
     if name == "" then
         print("No valid name inserted")
+        vim.cmd("cd " .. current_dir)
         return
     end
     name = '/' .. name .. "_wiki"
