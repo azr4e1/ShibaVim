@@ -80,7 +80,7 @@ function Echo_diagnostic()
       elseif diag.severity == vim.lsp.protocol.DiagnosticSeverity.Hint then
         kind = 'hint'
         hlgroup = hint_hlgroup
-      elseif diag.severity == vim.lsp.protocol.DiagnosticSeverity.Info then
+      elseif diag.severity == vim.lsp.protocol.DiagnosticSeverity.Information then
         kind = 'info'
         hlgroup = info_hlgroup
       end
