@@ -59,16 +59,19 @@ function Echo_diagnostic()
       last_echo = { true, bufnr, line }
 
       local diag = diags[1]
-      local width = vim.api.nvim_get_option('columns') - 15
+      local AVOID_PRESS_ENTER_CHARS = 17
+      local width = vim.api.nvim_get_option('columns') - AVOID_PRESS_ENTER_CHARS
       local lines = vim.split(diag.message, "\n")
       local message = lines[1]
 
-      if #lines > 1 and #message <= short_line_limit then
-        message = message .. ' ' .. lines[2]
+      local line_number = 2
+      while line_number < #lines and #message <= width do
+        message = message .. ' ' .. lines[line_number]
+        line_number = line_number + 1
       end
 
       if width > 0 and #message >= width then
-        message = message:sub(1, width - #"warning: ") .. '...'
+        message = message:sub(1, width - #"warning: ") .. '…'
       end
 
       local kind = 'warning'
