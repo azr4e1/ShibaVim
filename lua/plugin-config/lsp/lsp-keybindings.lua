@@ -44,7 +44,8 @@ local mappings = function(_, bufnr)
     --buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     --buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-    buf_set_keymap('n', '<space>ft', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    buf_set_keymap('n', '<space>ft', '<cmd>lua vim.lsp.buf.format({async=true})<CR>', opts)
+    buf_set_keymap('v', '<space>ft', '<cmd>lua vim.lsp.buf.format({async=true})<CR>', opts)
 end
 
 local on_attach = function(client, bufnr)
