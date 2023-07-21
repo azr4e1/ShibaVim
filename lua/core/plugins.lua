@@ -158,7 +158,7 @@ return require('packer').startup(function(use)
     --      commit=false}                -- SQL
     use {'nvim-lualine/lualine.nvim', commit='8912bea65de93a56b1f70cdb7c3c26f9cce30394'}            -- statusline
     use {"folke/which-key.nvim", commit='65b36cc258e857dea92fc11cdc0d6e2bb01d3e87'}
-    use {'vimwiki/vimwiki', commit='65b9f0e68b1c4b6c2023a02b22d11a178e13445e'}
+    use {'vimwiki/vimwiki', commit='71edcf6802eeb724ca679547d5cb7a8eadf0cfcb'}
     use {'azr4e1/todo.vim',
          -- opt = true,
          cmd = 'TODO'}
