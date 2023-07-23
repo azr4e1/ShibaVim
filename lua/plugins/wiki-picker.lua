@@ -29,7 +29,13 @@ M.updateVimwikiList = function (folders)
             template_path = M.config.templateFolder .. '/',
             template_ext = '.html',
             template_default = 'default',
-            nested_syntaxes = {python = 'python', r = 'r'}
+            nested_syntaxes = {python = 'python',
+                               r = 'r',
+                               haskell = 'haskell',
+                               c = 'c',
+                               julia = 'julia',
+                               bash = 'bash',
+                               lua = 'lua'}
         }
         table.insert(new_list, item)
     end
