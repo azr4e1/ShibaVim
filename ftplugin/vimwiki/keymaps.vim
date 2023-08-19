@@ -4,6 +4,7 @@ imap <buffer><silent> <C-RIGHT> <Plug>VimwikiTableNextCell
 imap <buffer><silent> <C-LEFT> <Plug>VimwikiTablePrevCell
 nnoremap <buffer><silent> <leader>wu :!update_wiki<CR>
 nnoremap <buffer><silent> <leader>vwt :VimwikiTable<CR>
+nnoremap <buffer><silent> <leader>vwb :VimwikiBacklinks<CR>
 setlocal spell! spelllang=en_gb
 
 nnoremap <buffer> <leader>vws :VWS 
