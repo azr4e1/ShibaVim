@@ -102,6 +102,7 @@ vim.api.nvim_set_keymap("n", "<leader>TT", "<Plug>CreateDynamicCons", {silent=tr
 vim.api.nvim_set_keymap("n", "<leader>tD", "<Plug>CreateDynamicDebugger", {silent=true, desc="Create debugger dynamically"})
 vim.api.nvim_set_keymap("n", "<leader>tt", "<Plug>ToggleTerminal", {silent=true, desc="Toggle Terminal"})
 vim.api.nvim_set_keymap("n", "<leader>tk", "<Plug>KillTerminal", {silent=true, desc="Kill Terminal"})
+vim.api.nvim_set_keymap("n", "<leader>tr", "<Plug>KillTerminal | <Plug>ToggleTerminal", {silent=true, desc="Kill Terminal"})
 vim.api.nvim_set_keymap("n", "<leader>ts", "<Plug>SendLine", {silent=true, desc="Send current line to terminal"})
 vim.api.nvim_set_keymap("v", "<leader>ts", "<Plug>SendSelection", {silent=true, desc="Send current selection to terminal"})
 vim.api.nvim_set_keymap("n", "<leader>td", "<Plug>SendDownLine", {silent=true, desc="Send current line to terminal and move down"})
