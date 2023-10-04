@@ -167,6 +167,7 @@ return require('packer').startup(function(use)
          cmd = 'NNN'}
     use {'azr4e1/terminal.nvim'}
     use {'nvim-telescope/telescope-ui-select.nvim', commit='62ea5e58c7bbe191297b983a9e7e89420f581369'}
+    use {'danymat/neogen', commit='70127baaff25611deaf1a29d801fc054ad9d2dc1'}
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
