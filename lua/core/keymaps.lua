@@ -56,7 +56,7 @@ vim.api.nvim_set_keymap("n", "<leader>cd", ':tcd %:p:h<CR>:echom "Changed direct
 vim.api.nvim_set_keymap("c", "<ESC>", 'pumvisible() ? "\\<C-e>" : "\\<C-c>"', {expr=true, noremap=true})
 -- vim.api.nvim_set_keymap("i", "<CR>", 'pumvisible() ? "\\<C-y>" : "\\<CR>"', {expr=true, noremap=true})
 vim.api.nvim_set_keymap("c", "<CR>", 'pumvisible() ? "\\<C-y>" : "\\<CR>"', {expr=true, noremap=true})
-vim.api.nvim_create_user_command("Infos", [[echo "Informations about file "."'".expand("%:t")."'"."\nFile Type:\t".toupper(&filetype)."\nFile Encoding:\t".toupper(&fenc)."\nFile Format:\t".toupper(&ff)]], {nargs=0})
+vim.api.nvim_create_user_command("Infos", [[echo "Informations about file "."'".expand("%:t")."'"."\nFile Type:\t".toupper(&filetype)."\nFile Encoding:\t".toupper(&fenc)."\nFile Format:\t".toupper(&ff)."\nPath:\t".expand("%:p")]], {nargs=0})
 vim.api.nvim_set_keymap("n", "<leader>tn", ":tabnew<CR>", {silent=true, noremap=true, desc="Open new tab"})
 vim.api.nvim_set_keymap("n", "<M-H>", "gT", {silent=true, noremap=true})
 vim.api.nvim_set_keymap("n", "<M-L>", "gt", {silent=true, noremap=true})
