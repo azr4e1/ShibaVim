@@ -16,3 +16,4 @@ iabbrev <buffer> lua_css {{{class="prettyprint lang-lua"<CR><CR>}}}<UP>
 iabbrev <buffer> hs_css {{{class="prettyprint lang-haskell"<CR><CR>}}}<UP>
 iabbrev <buffer> jl_css {{{class="prettyprint lang-julia"<CR><CR>}}}<UP>
 iabbrev <buffer> sh_css {{{class="prettyprint lang-bash"<CR><CR>}}}<UP>
+iabbrev <buffer> ins_img {{file:~/Documents/Wikis/images/}}<LEFT><LEFT>
