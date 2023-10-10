@@ -22,3 +22,10 @@ function! PrevChunk()
         execute "normal! k"
     endwhile
 endfunction
+
+
+function! FormatComment()
+    while (getline(".") =~ '^#') && (len(getline('.')) >= 80)
+        execute "normal! 080|BF s\n# "
+    endwhile
+endfunction

@@ -17,8 +17,6 @@ nnoremap <silent><buffer> <localleader><CR> :call DownLine_noIndent()<CR>
 
 nnoremap <buffer><silent> <leader><CR> :call SendDownLine_Python()<CR>
 vnoremap <buffer><silent> <leader><CR> :<C-U>call DownSelection_nonewline()<CR>
-if exists(':GuiFont') || exists('g:GtkGuiLoaded')
-    nnoremap <buffer><silent> <C-ENTER> :call SendDownLine_Python()<CR>
-    vnoremap <buffer><silent> <C-ENTER> :<C-U>call DownSelection_nonewline()<CR>
-endif
-let b:SuperTabContextTextMemberPatterns = ['\.', '@']
+
+nnoremap <buffer><silent> <localleader>ft :call FormatComment()<CR>
+vnoremap <buffer><silent> <localleader>ft J:call FormatComment()<CR>
