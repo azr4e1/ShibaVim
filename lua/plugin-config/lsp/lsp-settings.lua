@@ -64,5 +64,15 @@ local configure_lsp = {
 mason_lsp.setup_handlers {
     function (server_name)
         nvim_lsp[server_name].setup(configure_lsp)
-    end
+    end,
+    -- haskell-language-server configuration
+    -- ["hls"] = function ()
+    --     require'lspconfig'['hls'].setup{
+    --         settings = {
+    --             haskell = {
+    --                 formattingProvider = "fourmolo"
+    --             }
+    --         }
+    --     }
+    -- end
 }

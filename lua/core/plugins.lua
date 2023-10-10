@@ -27,7 +27,7 @@ vim.cmd([[
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use {'wbthomason/packer.nvim',
-         commit='1d0cf98a561f7fd654c970c49f917d74fafe1530'}
+         commit='ea0cc3c59f67c440c5ff0bbe4fb9420f4350b9a3'}
     -- treesitter
     use {
         'nvim-treesitter/nvim-treesitter',
