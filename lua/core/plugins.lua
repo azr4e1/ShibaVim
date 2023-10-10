@@ -67,7 +67,7 @@ return require('packer').startup(function(use)
     -- }
     -- project sidebar
     use {'nvim-tree/nvim-web-devicons',
-         commit='9ab9b0b894b2388a9dbcdee5f00ce72e25d85bf9'}
+         commit='a1e6268779411048a87f767a27380089362a0ce2'}
     use {'nvim-tree/nvim-tree.lua',
         opt = true,
         cmd = 'NvimTreeToggle',
