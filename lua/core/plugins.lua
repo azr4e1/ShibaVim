@@ -121,7 +121,7 @@ return require('packer').startup(function(use)
         config = function()
             require('Comment').setup()
         end,
-        commit='3d22da7f8d72d3eafe1491a7f05ea775b930c481'
+        tag = 'v0.8.0'
     }
     use {"windwp/nvim-autopairs",
          commit='e8f7dd7a72de3e7b6626c050a802000e69d53ff0'}
