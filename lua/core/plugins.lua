@@ -45,7 +45,7 @@ return require('packer').startup(function(use)
     use {"williamboman/mason.nvim",
         tag = 'v1.8.1'}
     use {"williamboman/mason-lspconfig.nvim",
-        commit='4f1c72767bec31397d59554f84096909b2887195'}
+        tag = 'v1.17.1'}
     -- use {"jay-babu/mason-nvim-dap.nvim",
     --     commit="b4af78dd862e465dfc00ce7a4c0dd811fafb09ed"}
     -- debugger
