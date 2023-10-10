@@ -10,7 +10,7 @@ function M.setup()
     vim.diagnostic.config(M.config)
     -- require('lazy.config.lsp.lsp-completion-signs')
     require('plugin-config.lsp.lsp-diagnostic-signs')
-    require('plugin-config.lsp.lsp-keybindings')
+    require('plugin-config.lsp.lsp-settings')
     require('plugin-config.lsp.lsp-toggle-diagnostic')
     require('plugin-config.lsp.virtual-text-position')
 end
