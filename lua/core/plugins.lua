@@ -139,9 +139,9 @@ return require('packer').startup(function(use)
          end,
          commit='9e33db324b8bb7a147bce9ea5496686ee859461d'
     }
-    use {'nvim-telescope/telescope.nvim', tag = '0.1.2',
+    use {'nvim-telescope/telescope.nvim', tag = '0.1.3',
         requires = {{'nvim-lua/plenary.nvim',
-                      commit='102c02903c74b93c705406bf362049383abc87c8'}},
+                      tag = 'v0.1.3'}}
     }
     use {'chrisbra/csv.vim',                   -- CSV
         ft = {'csv'},
