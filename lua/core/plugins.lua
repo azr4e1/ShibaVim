@@ -145,7 +145,7 @@ return require('packer').startup(function(use)
     }
     use {'chrisbra/csv.vim',                   -- CSV
         ft = {'csv'},
-        commit='15ff93edf5b26c466affbb356e0696b7d6a3b499'
+        commit='4fd88346aed02123aa5daa1a363868a576c6fdcf'
     }
     use {'azr4e1/luatab.nvim',
         config = function()
