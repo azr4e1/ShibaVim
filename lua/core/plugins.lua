@@ -94,7 +94,7 @@ return require('packer').startup(function(use)
         config = function()
             require'plugin-config.git-signs'.setup()
         end,
-        commit='dc2962f7fce953a2a98e7c6d3d7fc4c1d1f66758'
+        commit='ff01d34daaed72f271a8ffa088a7e839a60c640f'
     }
     -- indentation guides
     use {'lukas-reineke/indent-blankline.nvim',
