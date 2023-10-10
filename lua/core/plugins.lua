@@ -33,7 +33,7 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         event = 'VimEnter',
         run = ':TSUpdate',
-        commit='1bf573896c7854ca5827074685cd53e81eb30cef',
+        tag = 'v0.9.1',
         config = function()
             require'lazy.treesitter'.setup()
     end,
