@@ -1,15 +1,21 @@
 local M = {}
 
-local configure = {
-    filetype_exclude = {'vimwiki', 'text', 'markdown', 'dashboard', 'startify', 'csv', 'nerdtree', 'netrw', 'help', 'rdoc', 'NvimTree', 'calendar', 'keymenu', 'packer', 'mason', 'alpha'},
-    buftype_exclude = {'terminal', 'nofile'},
-    max_indent_increase = 1,
-    show_current_context = true,
-    show_current_context_start = false
+local setup = {
+
+    exclude = {
+        filetypes = { 'vimwiki', 'text', 'markdown', 'dashboard', 'startify', 'csv', 'nerdtree', 'netrw', 'help', 'rdoc',
+            'NvimTree', 'calendar', 'keymenu', 'packer', 'mason', 'alpha' },
+        buftypes = { 'terminal', 'nofile' }
+    },
+    scope = {
+        enabled = true,
+        show_start = false,
+        show_end = false
+    },
 }
 
 function M.setup()
-    require'indent_blankline'.setup(configure)
+    require'ibl'.setup(setup)
 end
 
 return M

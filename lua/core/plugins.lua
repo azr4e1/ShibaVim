@@ -102,7 +102,7 @@ return require('packer').startup(function(use)
         config = function()
             require('plugin-config.indent-blankline').setup()
         end,
-        commit='6061c085417e22f1706c04ceb1cf59bf80d44993'
+        tag = 'v3.2.7'
     }
     -- color visualizer
     use {'norcalli/nvim-colorizer.lua',
