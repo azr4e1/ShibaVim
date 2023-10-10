@@ -85,7 +85,7 @@ return require('packer').startup(function(use)
         config = function()
             require'plugin-config.zen-mode'.setup()
         end,
-        commit='eac78cce3eeb05799ec9a984a6ae147db77b88c1'
+        tag = 'v1.3.0'
     }
     -- git signs
     use {'lewis6991/gitsigns.nvim',
