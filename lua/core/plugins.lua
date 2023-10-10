@@ -74,7 +74,7 @@ return require('packer').startup(function(use)
         config = function()
             require'nvim-tree'.setup()
         end,
-        commit='4af572246ce49883e2a52c49203a19984454f2e0'
+        commit='53b0bcaadaffb505acff230578b56a86ec1ab38a'
     }
     -- LSP
     use {'neovim/nvim-lspconfig',
