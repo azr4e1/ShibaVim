@@ -125,3 +125,5 @@ vim.api.nvim_set_keymap("n", "<leader>ws", ":lua require'plugins.wiki-picker'.wi
 vim.api.nvim_set_keymap("n", "<leader>wN", ":lua require'plugins.wiki-create'.create_wiki()<CR>", {silent=true, noremap=true, desc="Create a Wiki"})
 vim.api.nvim_set_keymap("n", "<leader>fW", ":Telescope find_files cwd=" .. HOME .. "/Documents/Wikis/wiki<CR>", {silent=true, noremap=true, desc="Telescope on Wikis"})
 vim.api.nvim_set_keymap("n", "<leader>fww", ":cd ~/Documents/Wikis/wiki<CR>:Telescope live_grep<CR>:cd -<CR>", {silent=true, noremap=true, desc="Search in the Wikis"})
+vim.api.nvim_set_keymap("n", "<leader>ps", ":Telescope lsp_document_symbols<CR>", {silent=true, noremap=true, desc="Telescope on Wikis"})
+vim.api.nvim_set_keymap("n", "<leader>pS", ":Telescope lsp_workspace_symbols<CR>", {silent=true, noremap=true, desc="Telescope on Wikis"})
